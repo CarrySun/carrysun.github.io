@@ -3,11 +3,17 @@ var titleTime;
 var now = new Date();
 var hours = now.getHours();
 var timeValue = "(ฅ>ω<*ฅ) ";
-if(hours < 10) {
-    timeValue += "早安🌞 "
-} else if(hours > 20) {
-    timeValue += "晚安🌛 "
-} 
+if (hours > 7 && hours < 9) {
+  timeValue += "早安 ☀️ ";
+} else if (hours > 8 && hours < 11) {
+  timeValue += "上午好 ☁️ ";
+} else if (hours > 11 && hours < 13) {
+  timeValue += "中午好 ☕️ ";
+} else if (hours > 13 && hours < 18) {
+  timeValue += "下午好 ☕️ ";
+} else {
+  timeValue += "晚安 🌙 ";
+}
 
 document.addEventListener("visibilitychange", function() {
   if (document.hidden) {
