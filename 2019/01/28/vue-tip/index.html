@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="输入框输入内容后回车就会刷新页面1&amp;lt;el-form @submit.native.prevent&amp;gt; &amp;lt;/el-form&amp;gt; favicon STATIC_URL1&amp;lt;script src=&amp;lt;%= htmlWebpackPlugin.options.templateParameters.STATIC_URL %&amp;gt;/setting.js&amp;gt;&amp;lt;/scrip">
+<meta name="description" content="输入框输入内容后回车就会刷新页面1&amp;lt;el-form @submit.native.prevent&amp;gt; &amp;lt;/el-form&amp;gt;">
 <meta name="keywords" content="vueTip">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-tip">
 <meta property="og:url" content="http://yoursite.com/2019/01/28/vue-tip/index.html">
 <meta property="og:site_name" content="LeeSun">
-<meta property="og:description" content="输入框输入内容后回车就会刷新页面1&amp;lt;el-form @submit.native.prevent&amp;gt; &amp;lt;/el-form&amp;gt; favicon STATIC_URL1&amp;lt;script src=&amp;lt;%= htmlWebpackPlugin.options.templateParameters.STATIC_URL %&amp;gt;/setting.js&amp;gt;&amp;lt;/scrip">
+<meta property="og:description" content="输入框输入内容后回车就会刷新页面1&amp;lt;el-form @submit.native.prevent&amp;gt; &amp;lt;/el-form&amp;gt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-28T02:59:34.957Z">
+<meta property="og:updated_time" content="2019-01-28T08:39:14.259Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-tip">
-<meta name="twitter:description" content="输入框输入内容后回车就会刷新页面1&amp;lt;el-form @submit.native.prevent&amp;gt; &amp;lt;/el-form&amp;gt; favicon STATIC_URL1&amp;lt;script src=&amp;lt;%= htmlWebpackPlugin.options.templateParameters.STATIC_URL %&amp;gt;/setting.js&amp;gt;&amp;lt;/scrip">
+<meta name="twitter:description" content="输入框输入内容后回车就会刷新页面1&amp;lt;el-form @submit.native.prevent&amp;gt; &amp;lt;/el-form&amp;gt;">
 
 
 
@@ -342,6 +342,7 @@
 
       
         <h2 id="输入框输入内容后回车就会刷新页面"><a href="#输入框输入内容后回车就会刷新页面" class="headerlink" title="输入框输入内容后回车就会刷新页面"></a>输入框输入内容后回车就会刷新页面</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-form</span> @<span class="attr">submit.native.prevent</span>&gt;</span> <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h2 id="favicon-STATIC-URL"><a href="#favicon-STATIC-URL" class="headerlink" title="favicon STATIC_URL"></a>favicon STATIC_URL</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&lt;%= htmlWebpackPlugin.options.templateParameters.STATIC_URL %&gt;/setting.js&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolve</span>(<span class="params">dir</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> path.join(__dirname, <span class="string">".."</span>, dir);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">  filename: config.build.index,</span><br><span class="line">  template: <span class="string">"index.html"</span>,</span><br><span class="line">  inject: <span class="literal">true</span>,</span><br><span class="line">  favicon: resolve(<span class="string">"favicon.ico"</span>),</span><br><span class="line">  templateParameters: &#123;</span><br><span class="line">    STATIC_URL: config.dev.assetsPublicPath + config.dev.assetsSubDirectory</span><br><span class="line">  &#125;,</span><br><span class="line">  minify: &#123;</span><br><span class="line">    removeComments: <span class="literal">true</span>,</span><br><span class="line">    collapseWhitespace: <span class="literal">true</span>,</span><br><span class="line">    removeAttributeQuotes: <span class="literal">true</span></span><br><span class="line">    <span class="comment">// more options:</span></span><br><span class="line">    <span class="comment">// https://github.com/kangax/html-minifier#options-quick-reference</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// necessary to consistently work with multiple chunks via CommonsChunkPlugin</span></span><br><span class="line">  chunksSortMode: <span class="string">"dependency"</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -482,7 +483,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -836,5 +837,7 @@
 
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/clicklove.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":250},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

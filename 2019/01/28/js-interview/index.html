@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="##defer 和 asyncdefer 并行加载 js 文件，会按照页面上 script 标签的顺序执行async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行 ##js 的基本数据类型UndefinedNullBooleanStringArray(ES6)Symbol（唯一） ##基本类型的值和引用类型的值的区别基本类型在内存中占有固定大小的空间，因此保">
+<meta name="description" content="defer 和 asyncdefer 并行加载 js 文件，会按照页面上 script 标签的顺序执行async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行">
 <meta name="keywords" content="js,interview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js-interview">
 <meta property="og:url" content="http://yoursite.com/2019/01/28/js-interview/index.html">
 <meta property="og:site_name" content="LeeSun">
-<meta property="og:description" content="##defer 和 asyncdefer 并行加载 js 文件，会按照页面上 script 标签的顺序执行async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行 ##js 的基本数据类型UndefinedNullBooleanStringArray(ES6)Symbol（唯一） ##基本类型的值和引用类型的值的区别基本类型在内存中占有固定大小的空间，因此保">
+<meta property="og:description" content="defer 和 asyncdefer 并行加载 js 文件，会按照页面上 script 标签的顺序执行async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-28T02:56:38.740Z">
+<meta property="og:updated_time" content="2019-01-28T08:37:35.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js-interview">
-<meta name="twitter:description" content="##defer 和 asyncdefer 并行加载 js 文件，会按照页面上 script 标签的顺序执行async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行 ##js 的基本数据类型UndefinedNullBooleanStringArray(ES6)Symbol（唯一） ##基本类型的值和引用类型的值的区别基本类型在内存中占有固定大小的空间，因此保">
+<meta name="twitter:description" content="defer 和 asyncdefer 并行加载 js 文件，会按照页面上 script 标签的顺序执行async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行">
 
 
 
@@ -341,18 +341,19 @@
       
 
       
-        <p>##defer 和 async<br>defer 并行加载 js 文件，会按照页面上 script 标签的顺序执行<br>async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行</p>
-<p>##js 的基本数据类型<br>Undefined<br>Null<br>Boolean<br>String<br>Array<br>(ES6)Symbol（唯一） ##基本类型的值和引用类型的值的区别<br>基本类型在内存中占有固定大小的空间，因此保存在栈中<br>从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本<br>检测基本类型值的类型用 typeof</p>
+        <h2 id="defer-和-async"><a href="#defer-和-async" class="headerlink" title="defer 和 async"></a>defer 和 async</h2><p>defer 并行加载 js 文件，会按照页面上 script 标签的顺序执行<br>async 并行加载 js 文件，下载完成立即执行，不会按照页面上 script 标签的顺序执行</p>
+<a id="more"></a>
+<h2 id="js-的基本数据类型"><a href="#js-的基本数据类型" class="headerlink" title="js 的基本数据类型"></a>js 的基本数据类型</h2><p>Undefined<br>Null<br>Boolean<br>String<br>Array<br>(ES6)Symbol（唯一） ##基本类型的值和引用类型的值的区别<br>基本类型在内存中占有固定大小的空间，因此保存在栈中<br>从一个变量向另一个变量复制基本类型的值，会创建这个值的一个副本<br>检测基本类型值的类型用 typeof</p>
 <p>引用类型的值是对象，保存在对内存里<br>包含引用类型值的变量包含的不是对象本身，而是指向该对象的一个指针<br>从一个变量向另一个变量复制引用类型的值，复制的其实是指针，它俩最终都会指向同一个对象<br>检测引用类型值的类型用 instaneof(原型链)</p>
-<p>##Javascript 垃圾回收方法 ###解除引用<br>一旦数据不再有用，将其值设置为 null 来释放引用，适用于全局变量和全局对象的属性<br>局部变量在离开执行环境时自动被解除引用 ###标记清除（mark and sweep）</p>
+<h2 id="Javascript-垃圾回收方法-解除引用"><a href="#Javascript-垃圾回收方法-解除引用" class="headerlink" title="Javascript 垃圾回收方法 ###解除引用"></a>Javascript 垃圾回收方法 ###解除引用</h2><p>一旦数据不再有用，将其值设置为 null 来释放引用，适用于全局变量和全局对象的属性<br>局部变量在离开执行环境时自动被解除引用 ###标记清除（mark and sweep）</p>
 <p>这是 JavaScript 最常见的垃圾回收方式，当变量进入执行环境的时候（函数中声明一个变量）垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。<br>垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了 ###引用计数(reference counting)</p>
 <p>在低版本 IE 中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。<br>引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加 1，如果该变量的值变成了另外一个，则这个值得引用次数减 1，当这个值的引用次数变为 0 的时候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为 0 的值占用的空间。<br>在 IE 中虽然 JavaScript 对象通过标记清除的方式进行垃圾回收，但 BOM 与 DOM 对象却是通过引用计数回收垃圾的，<br>也就是说只要涉及 BOM 及 DOM 就会出现循环引用问题。 ##请描述一下 cookies，sessionStorage 和 localStorage 的区别？</p>
 <p>sessionStorage 和 localStorage 是 HTML5 Web Storage API 提供的，可以方便的在 web 请求之间保存数据。有了本地数据，就可以避免数据在浏览器和服务器间不必要地来回传递。sessionStorage、localStorage、cookie 都是在浏览器端存储的数据，其中 sessionStorage 的概念很特别，引入了一个“浏览器窗口”的概念。sessionStorage 是在同源的同窗口（或 tab）中，始终存在的数据。也就是说只要这个浏览器窗口没有关闭，即使刷新页面或进入同源另一页面，数据仍然存在。关闭窗口后，sessionStorage 即被销毁。同时“独立”打开的不同窗口，即使是同一页面，sessionStorage 对象也是不同的 cookies 会发送到服务器端。其余两个不会。Microsoft 指出 InternetExplorer8 增加 cookie 限制为每个域名 50 个，但 IE7 似乎也允许每个域名 50 个 cookie。<br>Firefox 每个域名 cookie 限制为 50 个。<br>Opera 每个域名 cookie 限制为 30 个。<br>Firefox 和 Safari 允许 cookie 多达 4097 个字节，包括名（name）、值（value）和等号。<br>Opera 允许 cookie 多达 4096 个字节，包括：名（name）、值（value）和等号。<br>InternetExplorer 允许 cookie 多达 4095 个字节，包括：名（name）、值（value）和等号。 ##如何解决跨域问题</p>
-<p>###JSONP：<br>原理是：动态插入 script 标签，通过 script 标签引入一个 js 文件，这个 js 文件载入成功后会执行我们在 url 参数中指定的函数，并且会把我们需要的 json 数据作为参数传入。<br>由于同源策略的限制，XmlHttpRequest 只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过 script 标签实现跨域请求，然后在服务端输出 JSON 数据并执行回调函数，从而解决了跨域的数据请求。</p>
+<h3 id="JSONP："><a href="#JSONP：" class="headerlink" title="JSONP："></a>JSONP：</h3><p>原理是：动态插入 script 标签，通过 script 标签引入一个 js 文件，这个 js 文件载入成功后会执行我们在 url 参数中指定的函数，并且会把我们需要的 json 数据作为参数传入。<br>由于同源策略的限制，XmlHttpRequest 只允许请求当前源（域名、协议、端口）的资源，为了实现跨域请求，可以通过 script 标签实现跨域请求，然后在服务端输出 JSON 数据并执行回调函数，从而解决了跨域的数据请求。</p>
 <p>优点是兼容性好，简单易用，支持浏览器与服务器双向通信。<br>缺点是只支持 GET 请求。</p>
 <p>JSONP：json+padding（内填充），顾名思义，就是把 JSON 填充到一个盒子里</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">    function createJs(sUrl)&#123;</span><br><span class="line"></span><br><span class="line">        var oScript = document.createElement(&apos;script&apos;);</span><br><span class="line">        oScript.type = &apos;text/javascript&apos;;</span><br><span class="line">        oScript.src = sUrl;</span><br><span class="line">        document.getElementsByTagName(&apos;head&apos;)[0].appendChild(oScript);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    createJs(&apos;jsonp.js&apos;);</span><br><span class="line"></span><br><span class="line">    box(&#123;</span><br><span class="line">       &apos;name&apos;: &apos;test&apos;</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    function box(json)&#123;</span><br><span class="line">        alert(json.name);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>###CORS<br>服务器端对于 CORS 的支持，主要就是通过设置 Access-Control-Allow-Origin 来进行的。如果浏览器检测到相应的设置，就可以允许 Ajax 进行跨域的访问。 ###通过修改 document.domain 来跨子域<br>将子域和主域的 document.domain 设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用 document.domain 进行跨域<br>主域相同的使用 document.domain ###使用 window.name 来进行跨域<br>window 对象有个 name 属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个 window.name 的，每个页面对 window.name 都有读写的权限，window.name 是持久存在一个窗口载入过的所有页面中的 ###使用 HTML5 中新引进的 window.postMessage 方法来跨域传送数据<br>还有 flash、在服务器上设置代理页面等跨域方式。个人认为 window.name 的方法既不复杂，也能兼容到几乎所有浏览器，这真是极好的一种跨域方法。</p>
+<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>服务器端对于 CORS 的支持，主要就是通过设置 Access-Control-Allow-Origin 来进行的。如果浏览器检测到相应的设置，就可以允许 Ajax 进行跨域的访问。 ###通过修改 document.domain 来跨子域<br>将子域和主域的 document.domain 设为同一个主域.前提条件：这两个域名必须属于同一个基础域名!而且所用的协议，端口都要一致，否则无法利用 document.domain 进行跨域<br>主域相同的使用 document.domain ###使用 window.name 来进行跨域<br>window 对象有个 name 属性，该属性有个特征：即在一个窗口(window)的生命周期内,窗口载入的所有的页面都是共享一个 window.name 的，每个页面对 window.name 都有读写的权限，window.name 是持久存在一个窗口载入过的所有页面中的 ###使用 HTML5 中新引进的 window.postMessage 方法来跨域传送数据<br>还有 flash、在服务器上设置代理页面等跨域方式。个人认为 window.name 的方法既不复杂，也能兼容到几乎所有浏览器，这真是极好的一种跨域方法。</p>
 
       
     </div>
@@ -449,8 +450,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -480,7 +490,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -503,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#defer-和-async"><span class="nav-number">1.</span> <span class="nav-text">defer 和 async</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#js-的基本数据类型"><span class="nav-number">2.</span> <span class="nav-text">js 的基本数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Javascript-垃圾回收方法-解除引用"><span class="nav-number">3.</span> <span class="nav-text">Javascript 垃圾回收方法 ###解除引用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP："><span class="nav-number">3.1.</span> <span class="nav-text">JSONP：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS"><span class="nav-number">3.2.</span> <span class="nav-text">CORS</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -818,5 +844,7 @@
 
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/clicklove.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":250},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

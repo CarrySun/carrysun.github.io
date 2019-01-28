@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="nodejs koa    ##一、node 1. 通过 nvm 安装管理多版本 node安装 nvm 12curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash~/.bashrc nvm 安装 node 12345678910111213//查看当前 node 版本nvm lsnv">
+<meta name="description" content="nodejs koa">
 <meta name="keywords" content="nodejs,koa,configuration">
 <meta property="og:type" content="article">
 <meta property="og:title" content="nodejs-koa">
 <meta property="og:url" content="http://yoursite.com/2019/01/28/nodejs-koa/index.html">
 <meta property="og:site_name" content="LeeSun">
-<meta property="og:description" content="nodejs koa    ##一、node 1. 通过 nvm 安装管理多版本 node安装 nvm 12curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash~/.bashrc nvm 安装 node 12345678910111213//查看当前 node 版本nvm lsnv">
+<meta property="og:description" content="nodejs koa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-28T02:58:59.923Z">
+<meta property="og:updated_time" content="2019-01-28T08:36:32.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="nodejs-koa">
-<meta name="twitter:description" content="nodejs koa    ##一、node 1. 通过 nvm 安装管理多版本 node安装 nvm 12curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash~/.bashrc nvm 安装 node 12345678910111213//查看当前 node 版本nvm lsnv">
+<meta name="twitter:description" content="nodejs koa">
 
 
 
@@ -347,6 +347,7 @@
 <li><a href="http://koa.bootcss.com/" target="_blank" rel="noopener">koa</a></li>
 </ul>
 </blockquote>
+<a id="more"></a>
 <hr>
 <p>##一、node</p>
 <h3 id="1-通过-nvm-安装管理多版本-node"><a href="#1-通过-nvm-安装管理多版本-node" class="headerlink" title="1. 通过 nvm 安装管理多版本 node"></a>1. 通过 nvm 安装管理多版本 node</h3><p>安装 nvm</p>
@@ -360,7 +361,7 @@
 <h3 id="2-运行"><a href="#2-运行" class="headerlink" title="2. 运行"></a>2. 运行</h3><p>app.js 监听 3000 端口</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">"use strict"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> koa = <span class="built_in">require</span>(<span class="string">"koa"</span>);</span><br><span class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">"koa-logger"</span>);</span><br><span class="line"><span class="keyword">var</span> session = <span class="built_in">require</span>(<span class="string">"koa-session"</span>);</span><br><span class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">"koa-bodyparser"</span>);</span><br><span class="line"><span class="keyword">var</span> app = <span class="keyword">new</span> koa();</span><br><span class="line"></span><br><span class="line">app.keys = [<span class="string">"server"</span>];</span><br><span class="line"></span><br><span class="line">app.use(logger());</span><br><span class="line">app.use(session(app));</span><br><span class="line">app.use(bodyParser());</span><br><span class="line"><span class="keyword">var</span> port = <span class="number">3000</span>;</span><br><span class="line">app.listen(port);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"Listening: "</span> + port);</span><br></pre></td></tr></table></figure>
 <p>运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> supervisor app</span></span><br><span class="line"></span><br><span class="line">Running node-supervisor with</span><br><span class="line">  program 'app'</span><br><span class="line">  --watch '.'</span><br><span class="line">  --extensions 'node,js'</span><br><span class="line">  --exec 'node'</span><br><span class="line"></span><br><span class="line">Starting child process with 'node app'</span><br><span class="line">Watching directory '/Users/user/app/server' for changes.</span><br><span class="line">Press rs for restarting the process.</span><br><span class="line">Listening: 3000</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> supervisor app</span><br><span class="line"></span><br><span class="line">Running node-supervisor with</span><br><span class="line">  program 'app'</span><br><span class="line">  --watch '.'</span><br><span class="line">  --extensions 'node,js'</span><br><span class="line">  --exec 'node'</span><br><span class="line"></span><br><span class="line">Starting child process with 'node app'</span><br><span class="line">Watching directory '/Users/user/app/server' for changes.</span><br><span class="line">Press rs for restarting the process.</span><br><span class="line">Listening: 3000</span><br></pre></td></tr></table></figure>
 <hr>
 <p>作者 jialee<br>2017 年 09 月 09 日</p>
 
@@ -501,7 +502,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -855,5 +856,7 @@
 
   <!-- 页面点击小红心 -->
   <script type="text/javascript" src="/js/src/clicklove.js"></script>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":150,"height":250},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
