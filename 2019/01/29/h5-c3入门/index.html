@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="入门,html,css,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="DOCTYPEh5 规范 标签、属性 大小写无限制  12&amp;lt;!--可以但不推荐--&amp;gt;&amp;lt;p class=&quot;cls&quot;&amp;gt;&amp;lt;/p&amp;gt;">
+<meta name="keywords" content="入门,html,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="h5-c3入门">
+<meta property="og:url" content="http://yoursite.com/2019/01/29/h5-c3入门/index.html">
+<meta property="og:site_name" content="LeeSun">
+<meta property="og:description" content="DOCTYPEh5 规范 标签、属性 大小写无限制  12&amp;lt;!--可以但不推荐--&amp;gt;&amp;lt;p class=&quot;cls&quot;&amp;gt;&amp;lt;/p&amp;gt;">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-21T03:36:10.243Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="h5-c3入门">
+<meta name="twitter:description" content="DOCTYPEh5 规范 标签、属性 大小写无限制  12&amp;lt;!--可以但不推荐--&amp;gt;&amp;lt;p class=&quot;cls&quot;&amp;gt;&amp;lt;/p&amp;gt;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/29/h5-c3入门/">
+
+
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4FBXXFKE4F",
+    "geolocation": "enabled",
+    "position": "top-left",
+    "margin": "10px 10px",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U3773B0366",
+    "hash": "288f524f2a01781bf4c0d64337225987"
+});
+tpwidget("show");</script>
+
+
+  <title>h5-c3入门 | LeeSun</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b44364eb333f91df2ffdbec65c8bb3a3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeSun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/h5-c3入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Carry Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeSun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">h5-c3入门</h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T13:40:51+08:00">
+                2019-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/29/h5-c3入门/" class="leancloud_visitors" data-flag-title="h5-c3入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="DOCTYPE"><a href="#DOCTYPE" class="headerlink" title="DOCTYPE"></a>DOCTYPE</h2><h2 id="h5-规范"><a href="#h5-规范" class="headerlink" title="h5 规范"></a>h5 规范</h2><blockquote>
+<p>标签、属性 大小写无限制</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--可以但不推荐--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"cls"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="主要为了在移动设备上支持多媒体"><a href="#主要为了在移动设备上支持多媒体" class="headerlink" title="主要为了在移动设备上支持多媒体"></a>主要为了在移动设备上支持多媒体</h2><blockquote>
+<p>video<br>audio<br>canvas</p>
+</blockquote>
+<h2 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>语义化<br>SEO<br>多媒体元素<br>代替 FLASH<br>跨平台</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>IE8 以下不支持</p>
+<h3 id="漏洞"><a href="#漏洞" class="headerlink" title="漏洞"></a>漏洞</h3><p><a href="http://www.filldisk.com" target="_blank" rel="noopener">http://www.filldisk.com</a> （Firefox 可以访问，其他的不要试了）</p>
+<p>cookie 文件过大 无限制 硬盘 gg</p>
+<h2 id="h5-布局"><a href="#h5-布局" class="headerlink" title="h5 布局"></a>h5 布局</h2><p>语义化标签 + css</p>
+<p>语义化标签有自己的含义，浏览器程序员一眼就能看到</p>
+<h2 id="兼容（IE8-以下不支持）"><a href="#兼容（IE8-以下不支持）" class="headerlink" title="兼容（IE8 以下不支持）"></a>兼容（IE8 以下不支持）</h2><h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>引入外部 <a href="https://github.com/aFarkas/html5shiv/releases" target="_blank" rel="noopener">htmlshiv.js</a> 文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lte IE 8]&gt;</span></span><br><span class="line"><span class="comment">  &lt;script</span></span><br><span class="line"><span class="comment">    type="text/javascript"</span></span><br><span class="line"><span class="comment">    src="http://www.ijquery.cn/js/html5shiv.js"</span></span><br><span class="line"><span class="comment">  &gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;!--[if lte IE 8]&gt;</code>只针对 ie 有效</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>范例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>[if IE]</td>
+<td>所有的 IE 可识别</td>
+</tr>
+<tr>
+<td></td>
+<td>[if IE6]</td>
+<td>仅 IE6 可识别</td>
+</tr>
+<tr>
+<td>!</td>
+<td>[if !IE]</td>
+<td>除 IE 外都可识别</td>
+</tr>
+<tr>
+<td>lt</td>
+<td>[if lt IE 6]</td>
+<td>小于运算符。IE6 以下版本可识别</td>
+</tr>
+<tr>
+<td>lte</td>
+<td>[if lte IE 6]</td>
+<td>小于或等于运算。IE6 以及 IE6 以下版本可识别</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>[if gt IE 5]</td>
+<td>大于运算符。 IE5 以上版本可识别</td>
+</tr>
+<tr>
+<td>gte</td>
+<td>[if gte IE 5]</td>
+<td>大于或等于运算。IE5 以及 IE5 以上版本可识别</td>
+</tr>
+<tr>
+<td>( )</td>
+<td>[if !(IE 7)]</td>
+<td>子表达式。</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>[if (gt IE 5)&amp;(lt IE 7)]</td>
+<td>AND 运算符。</td>
+</tr>
+<tr>
+<td>竖线</td>
+<td>[if (IE 6) 竖线 (IE 7)]</td>
+<td>OR 运算符。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><ul>
+<li>在 css 中设置 该标签的 display: block</li>
+<li>在 js 中通过 DOM 的方式创建这个标签</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  header &#123;</span></span><br><span class="line"><span class="undefined">    display: block;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  document.createElement("header");</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="多媒体"><a href="#多媒体" class="headerlink" title="多媒体"></a>多媒体</h2><h3 id="video"><a href="#video" class="headerlink" title="video"></a>video</h3><p>自动播放 muted autoplay</p>
+<h3 id="audio"><a href="#audio" class="headerlink" title="audio"></a>audio</h3><p>不可自动播放</p>
+<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><p>datalist…..</p>
+<h2 id="新事件"><a href="#新事件" class="headerlink" title="新事件"></a>新事件</h2><p>$.classlist.add<br>$.classlist.contain(‘’)</p>
+<h2 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h2><blockquote>
+<p>标签内</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dt"</span> <span class="attr">data-user-weight</span>=<span class="string">"520"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>js 内</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.querySelector(<span class="string">"#dt"</span>).dataset.userHeight = <span class="string">"1314"</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">data-name</span>=<span class="string">"美女"</span> <span class="attr">data-user-sex</span>=<span class="string">"女"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> dt = <span class="built_in">document</span>.querySelector(<span class="string">"#dt"</span>).dataset;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(dt.name);</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(dt.userSex);</span></span><br><span class="line"><span class="javascript">  dt.height = <span class="string">"180"</span>;</span></span><br><span class="line"><span class="javascript">  dt.userWeight = <span class="string">"55"</span>;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><p>FileReader</p>
+<h2 id="onLine"><a href="#onLine" class="headerlink" title="onLine"></a>onLine</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> state = <span class="built_in">window</span>.navigator.onLine;</span><br><span class="line"><span class="keyword">if</span> (state) &#123;</span><br><span class="line">  alert(<span class="string">"在线"</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  alert(<span class="string">"不在线"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.ononline = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"连接上了"</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">window</span>.onoffline = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"掉线了"</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="geolocation"><a href="#geolocation" class="headerlink" title="geolocation"></a>geolocation</h2><h2 id="本地存储"><a href="#本地存储" class="headerlink" title="本地存储"></a>本地存储</h2><p>setItem、getItem、removeItem 和 clear</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>特性</th>
+<th>大小</th>
+<th>使用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cookie</td>
+<td>比较小</td>
+<td>4K</td>
+<td>sessionStorage.setItem(“key”,”value”)</td>
+</tr>
+<tr>
+<td>localStorage</td>
+<td>域内安全、永久保存</td>
+<td>20M</td>
+<td>localStorage.setItem(“key”,”value”)</td>
+</tr>
+<tr>
+<td>sessionStorage</td>
+<td>会话控制、短期保存</td>
+<td>5M</td>
+<td>sessionStorage.setItem(“key”,”value”)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h2><h3 id="绘制方式"><a href="#绘制方式" class="headerlink" title="绘制方式"></a>绘制方式</h3><ol>
+<li>创建画布</li>
+<li>获取绘画对象</li>
+<li>定点</li>
+<li>绘制</li>
+<li>重置路径</li>
+</ol>
+<h3 id="重复绘制-会描线"><a href="#重复绘制-会描线" class="headerlink" title="重复绘制 会描线"></a>重复绘制 会描线</h3><ol>
+<li>只用一次 ctx.stroke();</li>
+<li>ctx.beginPath();//重置路径</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/入门/" rel="tag"># 入门</a>
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/28/meta入门/" rel="next" title="meta入门">
+                <i class="fa fa-chevron-left"></i> meta入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/29/tips/" rel="prev" title="tips">
+                tips <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Carry Sun">
+            
+              <p class="site-author-name" itemprop="name">Carry Sun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DOCTYPE"><span class="nav-number">1.</span> <span class="nav-text">DOCTYPE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h5-规范"><span class="nav-number">2.</span> <span class="nav-text">h5 规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要为了在移动设备上支持多媒体"><span class="nav-number">3.</span> <span class="nav-text">主要为了在移动设备上支持多媒体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优缺点"><span class="nav-number">4.</span> <span class="nav-text">优缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优点"><span class="nav-number">4.1.</span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺点"><span class="nav-number">4.2.</span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#漏洞"><span class="nav-number">4.3.</span> <span class="nav-text">漏洞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h5-布局"><span class="nav-number">5.</span> <span class="nav-text">h5 布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兼容（IE8-以下不支持）"><span class="nav-number">6.</span> <span class="nav-text">兼容（IE8 以下不支持）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方法"><span class="nav-number">6.1.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">6.2.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多媒体"><span class="nav-number">7.</span> <span class="nav-text">多媒体</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#video"><span class="nav-number">7.1.</span> <span class="nav-text">video</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#audio"><span class="nav-number">7.2.</span> <span class="nav-text">audio</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-number">8.</span> <span class="nav-text">表单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新事件"><span class="nav-number">9.</span> <span class="nav-text">新事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义属性"><span class="nav-number">10.</span> <span class="nav-text">自定义属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件"><span class="nav-number">11.</span> <span class="nav-text">文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onLine"><span class="nav-number">12.</span> <span class="nav-text">onLine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geolocation"><span class="nav-number">13.</span> <span class="nav-text">geolocation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地存储"><span class="nav-number">14.</span> <span class="nav-text">本地存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#canvas"><span class="nav-number">15.</span> <span class="nav-text">canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制方式"><span class="nav-number">15.1.</span> <span class="nav-text">绘制方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重复绘制-会描线"><span class="nav-number">15.2.</span> <span class="nav-text">重复绘制 会描线</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carry Sun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wVVSoEvbz8XvyuzG34V9GyRE-gzGzoHsz", "1ze9QHCnMNQ2RS614Vw9kcwC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

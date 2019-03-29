@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="本文由 简悦 SimpRead 转码， 原文地址 https://mp.weixin.qq.com/s/TT9M-bk3ni0JeTUlLC2QIg   写在前面：本文包括浏览器调试，不包括 web 移动端调试。本文调试均在 chrome 浏览器进行。  alert这个不用多说了，不言自明。 console基本输出想必大家都在用 console.log 在控制台输出点东西，其实 console">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chrome调试技巧">
+<meta property="og:url" content="http://yoursite.com/2019/02/22/chrome调试技巧/index.html">
+<meta property="og:site_name" content="LeeSun">
+<meta property="og:description" content="本文由 简悦 SimpRead 转码， 原文地址 https://mp.weixin.qq.com/s/TT9M-bk3ni0JeTUlLC2QIg   写在前面：本文包括浏览器调试，不包括 web 移动端调试。本文调试均在 chrome 浏览器进行。  alert这个不用多说了，不言自明。 console基本输出想必大家都在用 console.log 在控制台输出点东西，其实 console">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeEuTUIhsf7yG1lic7DTsicawdguFCkPichFFTiaHtbibRyVPibXNIpiaGagFLg/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeaVPmicz6Bibx2yf11mzULzuzbRW3sLFQjMuNtC1boA5IezkD1A4OQB3Q/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeAXLY916gjO9poKybDzXHxwPbliavZp86lib7kQqrl905fT2KdxeSPSjg/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeCp2BM3pdGLRgibsVfPtRy4njrSQSIxstmAt4icicyibr2KgKlb2EpibA3fg/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXewibsFiah8e2RwBV0gnHfNnicbHT1icMN4iak2AzOUnKZw5NJsbRI6GHAaDQ/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXehqf6Fx61XgTQ9Dib7gicSAWOFw6RhkVf0C20IicFRSksM7ftlra8BggMQ/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXesPXMFcW4lWE7IbEqjnY9Xe2U2eKTkbOEY4Bcabhmy21SFGDaTkJWeg/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeY83fGarWEzqrn5X0RiaZ2ZBNPibeWAOQic1HqsCqiaUnLXmJZsY7BNMCpA/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXebb3IxibUAa5pfJj7RbXYM2icsBBOTuRBsCB4NDDvaDn04icxFXHJUmichA/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXexEhfudyI1V3AJ3X7fKw7P7BVSq2beJrt6U7iaGZ9VvnGLsY4sj6bib0g/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXejCG0n1aRXibOocPN3EMhiaMGFGqelmbn61DhZuh1UqIgMLCWoJWr1eiag/640?wx_fmt=jpeg">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXe7v15UraRFZ1FHAASlYlFy8Rsz5Lkvxd1ibxD5vV54I8lqicwJb6TINFQ/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeJKBXI3Q3CeDX2zTzYIzvUQc0ASLNHpib58gVkOU2OctbYTh18icyyJgg/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeOx6iaWSiaicFaMtSrTw6voRkzfVUzECiaIc05lH98fJ4DOljYYFA6bYyww/640?wx_fmt=png">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/btsCOHx9LAPWWsjRocrDTkNwLZloQWZ36IdgR3UF3aPwKE5juHUXicFU10wN2Pw9ObAjlIXZ5J0iaufdicuINIjww/640?wx_fmt=png">
+<meta property="og:updated_time" content="2019-02-22T10:00:27.140Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="chrome调试技巧">
+<meta name="twitter:description" content="本文由 简悦 SimpRead 转码， 原文地址 https://mp.weixin.qq.com/s/TT9M-bk3ni0JeTUlLC2QIg   写在前面：本文包括浏览器调试，不包括 web 移动端调试。本文调试均在 chrome 浏览器进行。  alert这个不用多说了，不言自明。 console基本输出想必大家都在用 console.log 在控制台输出点东西，其实 console">
+<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeEuTUIhsf7yG1lic7DTsicawdguFCkPichFFTiaHtbibRyVPibXNIpiaGagFLg/640?wx_fmt=png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/02/22/chrome调试技巧/">
+
+
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4FBXXFKE4F",
+    "geolocation": "enabled",
+    "position": "top-left",
+    "margin": "10px 10px",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U3773B0366",
+    "hash": "288f524f2a01781bf4c0d64337225987"
+});
+tpwidget("show");</script>
+
+
+  <title>chrome调试技巧 | LeeSun</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b44364eb333f91df2ffdbec65c8bb3a3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeSun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/22/chrome调试技巧/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Carry Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeSun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">chrome调试技巧</h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T17:24:39+08:00">
+                2019-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/22/chrome调试技巧/" class="leancloud_visitors" data-flag-title="chrome调试技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>本文由 <a href="http://ksria.com/simpread/" target="_blank" rel="noopener">简悦 SimpRead</a> 转码， 原文地址 <a href="https://mp.weixin.qq.com/s/TT9M-bk3ni0JeTUlLC2QIg" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/TT9M-bk3ni0JeTUlLC2QIg</a></p>
+</blockquote>
+<blockquote>
+<p>写在前面：本文包括浏览器调试，不包括 web 移动端调试。本文调试均在 chrome 浏览器进行。</p>
+</blockquote>
+<h4 id="alert"><a href="#alert" class="headerlink" title="alert"></a>alert</h4><p>这个不用多说了，不言自明。</p>
+<h4 id="console"><a href="#console" class="headerlink" title="console"></a>console</h4><h5 id="基本输出"><a href="#基本输出" class="headerlink" title="基本输出"></a>基本输出</h5><p>想必大家都在用 <code>console.log</code> 在控制台输出点东西，其实 console 还有其它的方法：</p>
+<pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `console.log("打印字符串");//在控制台打印自定义字符串`
+
+2.  `console.error("我是个错误");//在控制台打印自定义错误信息`
+
+3.  `console.info("我是个信息");//在控制台打印自定义信息`
+
+4.  `console.warn("我是个警告");//在控制台打印自定义警告信息`
+
+5.  `console.debug("我是个调试");//在控制台打印自定义调试信息`
+
+6.  `cosole.clear();//清空控制台（这个下方截图中没有）`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeEuTUIhsf7yG1lic7DTsicawdguFCkPichFFTiaHtbibRyVPibXNIpiaGagFLg/640?wx_fmt=png" alt=""></p>
+<p>注意上面输出的 error 和 throw 出的 error 不一样，前者只是输出错误信息，无法捕获，不会冒泡，更不会中止程序运行。</p>
+<h5 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h5><p>除此以外，console 还支持自定义样式和类似 c 语言的 printf 形式：</p>
+<pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `console.log("%s年",2016);//%s表示字符串`
+
+2.  `console.log("%d年%d月",2016,11);//%d表示整数`
+
+3.  `console.log("%f",3.1415926);//%f小数`
+
+4.  `console.log("%o",console);//%o表示对象`
+
+6.  `console.log("%c自定义样式","font-size:30px;color:#00f");`
+
+7.  `console.log("%c我是%c自定义样式","font-size:20px;color:green","font-size:10px;color:red");`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeaVPmicz6Bibx2yf11mzULzuzbRW3sLFQjMuNtC1boA5IezkD1A4OQB3Q/640?wx_fmt=png" alt=""></p>
+<h5 id="DOM-输出"><a href="#DOM-输出" class="headerlink" title="DOM 输出"></a>DOM 输出</h5><p>下面几个比较简单的，就不举例子了，简单说一下：</p>
+<pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `var ul = document.getElementsByTagName("ul");`
+
+2.  `console.dirxml(ul); //树形输出table节点，即<table>和它的innerHTML，由于document.getElementsByTagName是动态的，所以这个得到的结果肯定是动态的`
+
+</table></pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeAXLY916gjO9poKybDzXHxwPbliavZp86lib7kQqrl905fT2KdxeSPSjg/640?wx_fmt=png" alt=""></p>
+<h5 id="对象输出"><a href="#对象输出" class="headerlink" title="对象输出"></a>对象输出</h5><pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `var o = {`
+
+2.  `name:"Lily",`
+
+3.  `age: 18`
+
+4.  `};`
+
+5.  `console.dir(obj);//显示对象自有属性和方法`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeCp2BM3pdGLRgibsVfPtRy4njrSQSIxstmAt4icicyibr2KgKlb2EpibA3fg/640?wx_fmt=png" alt=""></p>
+<p>对于多个对象的集合，你可以这样，输出更清晰：</p>
+<pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `var stu = [{name:"Bob",age:13,hobby:"playing"},{name:"Lucy",age:14,hobby:"reading"},{name:"Jane",age:11,hobby:"shopping"}];`
+
+2.  `console.log(stu);`
+
+3.  `console.table(stu);`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXewibsFiah8e2RwBV0gnHfNnicbHT1icMN4iak2AzOUnKZw5NJsbRI6GHAaDQ/640?wx_fmt=png" alt=""></p>
+<h5 id="成组输出"><a href="#成组输出" class="headerlink" title="成组输出"></a>成组输出</h5><pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `//建立一个参数组`
+
+2.  `console.group("start"); //引号里是组名，自己起`
+
+3.  `console.log("sub1");`
+
+4.  `console.log("sub1");`
+
+5.  `console.log("sub1");`
+
+6.  `console.groupEnd("end");`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXehqf6Fx61XgTQ9Dib7gicSAWOFw6RhkVf0C20IicFRSksM7ftlra8BggMQ/640?wx_fmt=png" alt=""></p>
+<h5 id="函数计数和跟踪"><a href="#函数计数和跟踪" class="headerlink" title="函数计数和跟踪"></a>函数计数和跟踪</h5><pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `function fib(n){ //输出前n个斐波那契数列值`
+
+2.  `if(n == 0) return;`
+
+3.  `console.count("调用次数");//放在函数里，每当这句代码运行输出所在函数执行次数`
+
+4.  `console.trace();//显示函数调用轨迹(访问调用栈）`
+
+5.  `var a = arguments[1] || 1;`
+
+6.  `var b = arguments[2] || 1;`
+
+7.  `console.log("fib=" + a);`
+
+8.  `[a, b] = [b, a + b];`
+
+9.  `fib(--n, a, b);`
+
+10.  `}`
+
+11.  `fib(6);`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXesPXMFcW4lWE7IbEqjnY9Xe2U2eKTkbOEY4Bcabhmy21SFGDaTkJWeg/640?wx_fmt=png" alt=""></p>
+<p>注：Chrome 开发者工具中的 Sources 标签页也在 Watch 表达式下面显示调用栈。</p>
+<h5 id="计时"><a href="#计时" class="headerlink" title="计时"></a>计时</h5><pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `console.time() //计时开始`
+
+2.  `fib(100); //用上述函数计算100个斐波那契数`
+
+3.  `console.timeEnd() //计时结束并输出时长`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeY83fGarWEzqrn5X0RiaZ2ZBNPibeWAOQic1HqsCqiaUnLXmJZsY7BNMCpA/640?wx_fmt=png" alt=""></p>
+<p>断言语句，这个 c++ 调试里面也经常用到。js 中，当第一个表达式或参数为 true 时候什么也不发生，为 false 时终止程序并报错。</p>
+<pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `console.assert(true, "我错了");`
+
+2.  `console.assert(false, "我真的错了");`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXebb3IxibUAa5pfJj7RbXYM2icsBBOTuRBsCB4NDDvaDn04icxFXHJUmichA/640?wx_fmt=png" alt=""></p>
+<h5 id="性能分析"><a href="#性能分析" class="headerlink" title="性能分析"></a>性能分析</h5><pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `function F(){`
+
+2.  `var i = 0;`
+
+3.  `function f(){`
+
+4.  `while(i++ == 1000);`
+
+5.  `}`
+
+6.  `function g(){`
+
+7.  `while(i++ == 100000);`
+
+8.  `}`
+
+9.  `f();`
+
+10.  `g();`
+
+11.  `}`
+
+12.  `console.profile();`
+
+13.  `F();`
+
+14.  `console.profileEnd();`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXexEhfudyI1V3AJ3X7fKw7P7BVSq2beJrt6U7iaGZ9VvnGLsY4sj6bib0g/640?wx_fmt=png" alt=""></p>
+<p>注：Chrome 开发者工具中的 Audits 标签页也可以实现性能分析。</p>
+<h4 id="debugger"><a href="#debugger" class="headerlink" title="debugger"></a>debugger</h4><p>这个重量级的是博主最常用的，可能是 c++ 出身，对于单步调试由衷的热爱。单步调试就是点一下，执行一句程序，并且可以查看当前作用域可见的所有变量和值。而 debugger 就是告诉程序在那里停下来进行单步调试，俗称断点。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXejCG0n1aRXibOocPN3EMhiaMGFGqelmbn61DhZuh1UqIgMLCWoJWr1eiag/640?wx_fmt=jpeg" alt=""></p>
+<p>右边按钮如下：</p>
+<ul>
+<li><p>Pause/Resume script execution：暂停 / 恢复脚本执行（程序执行到下一断点停止）。</p>
+</li>
+<li><p>Step over next function call：执行到下一步的函数调用（跳到下一行）。</p>
+</li>
+<li><p>Step into next function call：进入当前函数。</p>
+</li>
+<li><p>Step out of current function：跳出当前执行函数。</p>
+</li>
+<li><p>Deactive/Active all breakpoints：关闭 / 开启所有断点（不会取消）。</p>
+</li>
+<li><p>Pause on exceptions：异常情况自动断点设置。</p>
+</li>
+</ul>
+<p>其实右侧还有很多强大的功能：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXe7v15UraRFZ1FHAASlYlFy8Rsz5Lkvxd1ibxD5vV54I8lqicwJb6TINFQ/640?wx_fmt=png" alt=""></p>
+<ul>
+<li><p>Watch：Watch 表达式</p>
+</li>
+<li><p>Call Stack: 栈中变量的调用，这里是递归调用，肯定是在内存栈部分调用。</p>
+</li>
+<li><p>Scope：当前作用域变量观察。</p>
+</li>
+<li><p>BreakPoints：当前断点变量观察。</p>
+</li>
+<li><p>XHR BreakPoints：面向 Ajax，专为异步而生的断点调试功能。</p>
+</li>
+<li><p>DOM BreakPoints：主要包括下列 DOM 断点，注册方式见下图：</p>
+</li>
+</ul>
+<ol>
+<li><p>当节点属性发生变化时断点（Break on attributes modifications）</p>
+</li>
+<li><p>当节点内部子节点变化时断点（Break on subtree modifications）</p>
+</li>
+<li><p>当节点被移除时断点（Break on node removal）</p>
+</li>
+</ol>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeJKBXI3Q3CeDX2zTzYIzvUQc0ASLNHpib58gVkOU2OctbYTh18icyyJgg/640?wx_fmt=png" alt=""></p>
+<ul>
+<li><p>Global Listeners：全局事件监听</p>
+</li>
+<li><p>Event Listener Breakpoints：事件监听器断点，列出了所有页面及脚本事件，包括：鼠标、键盘、动画、定时器、XHR 等等。</p>
+</li>
+</ul>
+<h4 id="chrome-中的调试技巧"><a href="#chrome-中的调试技巧" class="headerlink" title="chrome 中的调试技巧"></a>chrome 中的调试技巧</h4><p>1、DOM 元素的控制台书签：Chrome 开发者工具和 Firebug 都提供了书签功能，用于显示你在元素标签页（Chrome）或 HTML 标签页（Firebug）中最后点击的 DOM 元素。如果你依次选择了 A 元素、B 元素和 C 元素，那么 $0 表示 C 元素， <code>$1</code> 表示 B 元素， <code>$2</code> 表示 A 元素（这个和正则表达式的 $ 符号类似，不过顺序不同）。</p>
+<p>2、如果你想调试 f 函数，用 debug(f) 语句可以增加这种断点。</p>
+<p>3、Sources 标签页左侧面板上有一个代码片段（Snippet）子标签页，可用于保存代码片段，帮你调试代码。</p>
+<p>4、可以用 Chrome 开发者工具 Sources 标签页中的格式化按钮（Pretty Print Button）格式化压缩后的代码。</p>
+<p>5、在 Network 面板，选择一个资源文件，右键 Copy Response 可快速复制响应内容。</p>
+<p>6、利用媒体查询，这个主要是在 Device Mode 调节不同的分辨率显示。</p>
+<p>7、选择 Elements，按 Esc &gt; Emulation &gt; Sensors 进行传感器模拟。</p>
+<p>8、点击渐入效果样式图标（紫色图标），可以预览动画效果，并可对相应的贝塞尔曲线 (cubic-bezier) 进行调节动画效果。</p>
+<p>9、在 Source 中按住 Alt 键并拖动鼠标进行多列内容选择。</p>
+<p>10、Elements 面板右键执行 DOM 元素节点，选择 Force Element State 或者点击右侧 Toggle Element State 图标可以出发伪类。</p>
+<p>11、Network 面板中选择一张图片，在右侧图片上鼠标右键选择 copy it as a Data URI, 就可以获取图片的 Data URL (base64 编码)。</p>
+<p>12、通过按住 Ctrl 键可以添加多个编辑光标，同时对多处进行编辑。按下 Ctrl + U 可以撤销编辑。</p>
+<p>13、Elements 面板右侧的 Style 编辑器中，点击颜色十六进制编码前的小色块，会弹出一个调色板。</p>
+<p>14、按下 Alt 键并且鼠标双击选择 DOM 元素前面的箭头，就会展开该 DOM 元素下的所有字节点元素.</p>
+<p>15、快捷键：</p>
+<ul>
+<li><p>快速定位到行：快捷键 <code>Ctrl+O</code>(Mac: <code>CMD+O</code>)，输入：行号: 列号 来进行定位</p>
+</li>
+<li><p>元素搜索：快捷键 <code>Ctrl+F</code>(Mac: <code>CMD+F</code>)，试试在搜索栏输入 ID 选择符或者类选择符就可以定位到元素啦</p>
+</li>
+</ul>
+<h4 id="调试过程注意事项"><a href="#调试过程注意事项" class="headerlink" title="调试过程注意事项"></a>调试过程注意事项</h4><p>1、避免记录引用类型</p>
+<p>当记录对象或数组时，永远记得你在记录什么。记录原始类型时，使用带断点的 watch 表达式。如果是异步代码，避免记录引用类型。</p>
+<pre style="margin-top: 0px;margin-bottom: 0px;padding: 8px 0px 6px;max-width: 100%;box-sizing: border-box;letter-spacing: 0.544px;text-align: justify;background-color: rgb(47, 54, 64);border-radius: 0px;overflow-y: auto;color: rgb(80, 97, 109);font-size: 10px;line-height: 12px;overflow-wrap: break-word !important;font-family: consolas, menlo, courier, monospace, &quot;Microsoft Yahei&quot;!important;border-width: 1px !important;border-style: solid !important;border-color: rgb(226, 226, 226) !important;">
+
+1.  `var arr = [{ num: 0 }];`
+
+2.  `setInterval(function(){`
+
+3.  `console.log(arr);`
+
+4.  `arr[0].num += 1;`
+
+5.  `}, 1000);`
+
+</pre>
+
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/aVp1YC8UV0e9f0DpZPGFicrPZ80uDchXeOx6iaWSiaicFaMtSrTw6voRkzfVUzECiaIc05lH98fJ4DOljYYFA6bYyww/640?wx_fmt=png" alt=""></p>
+<p>这里，第一个属性中对象引用的值是不可靠的。当你第一次在开发者工具中显示这个属性时，num 的值就已经确定了。之后无论你对同一个引用重新打开多少次都不会变化。</p>
+<p>2、尽可能使用 source map。有时生产代码不能使用 source map，但不管怎样，你都不应该直接对生产代码进行调试。</p>
+<blockquote>
+<p>作者：Faremax</p>
+<p><a href="https://segmentfault.com/a/1190000016256731" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016256731</a></p>
+</blockquote>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/btsCOHx9LAPWWsjRocrDTkNwLZloQWZ36IdgR3UF3aPwKE5juHUXicFU10wN2Pw9ObAjlIXZ5J0iaufdicuINIjww/640?wx_fmt=png" alt=""></p>
+<p><strong>「好看」</strong>一下，分享给更多人↓↓</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/21/前端优化技术/" rel="next" title="前端优化技术">
+                <i class="fa fa-chevron-left"></i> 前端优化技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/25/Mac-命令行压缩和解压rar文件/" rel="prev" title="(Mac)命令行压缩和解压rar文件">
+                (Mac)命令行压缩和解压rar文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Carry Sun">
+            
+              <p class="site-author-name" itemprop="name">Carry Sun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#alert"><span class="nav-number">1.</span> <span class="nav-text">alert</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#console"><span class="nav-number">2.</span> <span class="nav-text">console</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本输出"><span class="nav-number">2.1.</span> <span class="nav-text">基本输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#格式化输出"><span class="nav-number">2.2.</span> <span class="nav-text">格式化输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#DOM-输出"><span class="nav-number">2.3.</span> <span class="nav-text">DOM 输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象输出"><span class="nav-number">2.4.</span> <span class="nav-text">对象输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#成组输出"><span class="nav-number">2.5.</span> <span class="nav-text">成组输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数计数和跟踪"><span class="nav-number">2.6.</span> <span class="nav-text">函数计数和跟踪</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计时"><span class="nav-number">2.7.</span> <span class="nav-text">计时</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#性能分析"><span class="nav-number">2.8.</span> <span class="nav-text">性能分析</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#debugger"><span class="nav-number">3.</span> <span class="nav-text">debugger</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chrome-中的调试技巧"><span class="nav-number">4.</span> <span class="nav-text">chrome 中的调试技巧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调试过程注意事项"><span class="nav-number">5.</span> <span class="nav-text">调试过程注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carry Sun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wVVSoEvbz8XvyuzG34V9GyRE-gzGzoHsz", "1ze9QHCnMNQ2RS614Vw9kcwC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

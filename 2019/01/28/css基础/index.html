@@ -1,0 +1,2367 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="basis,css,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="CSS 参考手册">
+<meta name="keywords" content="basis,css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css基础">
+<meta property="og:url" content="http://yoursite.com/2019/01/28/css基础/index.html">
+<meta property="og:site_name" content="LeeSun">
+<meta property="og:description" content="CSS 参考手册">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-29T08:32:37.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css基础">
+<meta name="twitter:description" content="CSS 参考手册">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/28/css基础/">
+
+
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4FBXXFKE4F",
+    "geolocation": "enabled",
+    "position": "top-left",
+    "margin": "10px 10px",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U3773B0366",
+    "hash": "288f524f2a01781bf4c0d64337225987"
+});
+tpwidget("show");</script>
+
+
+  <title>css基础 | LeeSun</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b44364eb333f91df2ffdbec65c8bb3a3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeSun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/28/css基础/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Carry Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeSun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css基础</h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-28T10:46:50+08:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/28/css基础/" class="leancloud_visitors" data-flag-title="css基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="CSS-参考手册"><a href="#CSS-参考手册" class="headerlink" title="CSS 参考手册"></a>CSS 参考手册</h1><a id="more"></a> 
+<h2 id="插入样式表"><a href="#插入样式表" class="headerlink" title="插入样式表"></a>插入样式表</h2><p>（内联样式）Inline style &gt; （内部样式）Internal style sheet &gt;（外部样式）External style sheet &gt; 浏览器默认样式</p>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p><code>background:-color -image -repeat -attachment -position;</code></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#ffffff</span> <span class="built_in">url</span>(<span class="string">"img_tree.png"</span>) no-repeat right top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>^-image</td>
+<td>背景图像</td>
+<td><code>background-image:url(&#39;paper.gif&#39;);</code></td>
+</tr>
+<tr>
+<td>^-repeat</td>
+<td>重复<code>默认 repeat</code></td>
+<td><code>repeat</code> <code>repeat-x</code> <code>repeat-y</code> <code>no-repeat</code> <code>inherit</code></td>
+</tr>
+<tr>
+<td>^-attachment</td>
+<td>固定/滚动<code>默认 scroll</code></td>
+<td><code>scroll</code>：背景图片随页面的其余部分滚动；<code>fixed</code>：背景图像是固定的；<code>inherit</code></td>
+</tr>
+<tr>
+<td>^-position</td>
+<td>起始位置<code>默认 0 0</code></td>
+<td><code>left top</code> <code>x% y%</code> <code>xpos ypos(px、em...)</code> 左上角是 0 0，右下角是 100 100。如果仅指定了一个值，其他值将是 50％。可混合％和 positions；<code>inherit</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><h2 id="a"><a href="#a" class="headerlink" title="a"></a>a</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">L(link)OV(visited)E  and  H(hover)A(active)TE</span><br><span class="line"></span><br><span class="line">a:link &#123;color:#000000;&#125;      /* 未访问链接*/</span><br><span class="line">a:visited &#123;color:#00FF00;&#125;  /* 已访问链接 */</span><br><span class="line">a:hover &#123;color:#FF00FF;&#125;  /* 鼠标移动到链接上 */</span><br><span class="line">a:active &#123;color:#0000FF;&#125;  /* 鼠标点击时 */</span><br></pre></td></tr></table></figure>
+<h2 id="ul-ol"><a href="#ul-ol" class="headerlink" title="ul ol"></a>ul ol</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list-style</td>
+<td></td>
+<td><code>list-style: ^-type ^-image ^-position</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>list-style-image</td>
+<td>将图象设置为列表项标志</td>
+<td><code>url(&quot;sqpurple.gif&quot;)</code></td>
+</tr>
+<tr>
+<td>list-style-position</td>
+<td>设置列表中列表项标志的位置</td>
+<td><code>outside</code> <code>inside</code></td>
+</tr>
+<tr>
+<td>list-style-type</td>
+<td>设置列表项标志的类型</td>
+<td><code>none</code> <code>square</code> ….</td>
+</tr>
+</tbody>
+</table>
+<p>##</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">box-shdow: h-shadow v-shadow blur spread color inset;</span><br><span class="line"></span><br><span class="line">h-shadow	必需。水平阴影的位置。允许负值。	测试</span><br><span class="line">v-shadow	必需。垂直阴影的位置。允许负值。	测试</span><br><span class="line">blur	可选。模糊距离。	测试</span><br><span class="line">spread	可选。阴影的尺寸。	测试</span><br><span class="line">color	可选。阴影的颜色。请参阅 CSS 颜色值。	测试</span><br><span class="line">inset	可选。将外部阴影 (outset) 改为内部阴影。	测试</span><br></pre></td></tr></table></figure>
+<h2 id="属性组"><a href="#属性组" class="headerlink" title="属性组"></a>属性组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">动画</span><br><span class="line">背景</span><br><span class="line">边框和轮廓</span><br><span class="line">盒（框）</span><br><span class="line">颜色</span><br><span class="line">内容分页媒体</span><br><span class="line">定位</span><br><span class="line">可伸缩框</span><br><span class="line">字体</span><br><span class="line">生成内容</span><br><span class="line">网格</span><br><span class="line">超链接</span><br><span class="line">行框</span><br><span class="line">列表</span><br><span class="line">外边距</span><br><span class="line">Marquee</span><br><span class="line">多列</span><br><span class="line">内边距</span><br><span class="line">分页媒体</span><br><span class="line">定位</span><br><span class="line">打印</span><br><span class="line">Ruby</span><br><span class="line">语音</span><br><span class="line">表格</span><br><span class="line">文本</span><br><span class="line">2D/3D 转换</span><br><span class="line">过渡</span><br><span class="line">用户界面</span><br></pre></td></tr></table></figure>
+<p>“CSS” 列指示该属性是在哪个 CSS 版本（CSS1、CSS2 或 CSS3）中定义的。</p>
+<h2 id="CSS3-动画属性（Animation）"><a href="#CSS3-动画属性（Animation）" class="headerlink" title="CSS3 动画属性（Animation）"></a>CSS3 动画属性（Animation）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@keyframes</td>
+<td>CSS3 @keyframes 规则”)</td>
+<td>规定动画。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation</td>
+<td>CSS3 animation 属性”)</td>
+<td>所有动画属性的简写属性，除了 animation-play-state 属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-name</td>
+<td>CSS3 animation-name 属性”)</td>
+<td>规定 @keyframes 动画的名称。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-duration</td>
+<td>CSS3 animation-duration 属性”)</td>
+<td>规定动画完成一个周期所花费的秒或毫秒。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-timing-function</td>
+<td>CSS3 animation-timing-function 属性”)</td>
+<td>规定动画的速度曲线。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-delay</td>
+<td>CSS3 animation-delay 属性”)</td>
+<td>规定动画何时开始。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-iteration-count</td>
+<td>CSS3 animation-iteration-count 属性”)</td>
+<td>规定动画被播放的次数。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-direction</td>
+<td>CSS3 animation-direction 属性”)</td>
+<td>规定动画是否在下一周期逆向地播放。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-play-state</td>
+<td>CSS3 animation-play-state 属性”)</td>
+<td>规定动画是否正在运行或暂停。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>animation-fill-mode</td>
+<td>CSS3 animation-fill-mode 属性”)</td>
+<td>规定对象动画时间之外的状态。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-背景属性（Background）"><a href="#CSS-背景属性（Background）" class="headerlink" title="CSS 背景属性（Background）"></a>CSS 背景属性（Background）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>background</td>
+<td>在一个声明中设置所有的背景属性。<code>background:-color -image -repeat -attachment -position;</code></td>
+<td>1</td>
+</tr>
+<tr>
+<td>background-attachment</td>
+<td>设置背景图像是否固定或者随着页面的其余部分滚动。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>background-color</td>
+<td>设置元素的背景颜色。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>background-image</td>
+<td>设置元素的背景图像。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>background-position</td>
+<td>设置背景图像的开始位置。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>background-repeat</td>
+<td>设置是否及如何重复背景图像。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>background-clip</td>
+<td>CSS3 background-clip 属性”)</td>
+<td>规定背景的绘制区域。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>background-origin</td>
+<td>CSS3 background-origin 属性”)</td>
+<td>规定背景图片的定位区域。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>background-size</td>
+<td>CSS3 background-size 属性”)</td>
+<td>规定背景图片的尺寸。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-边框属性（Border-和-Outline）"><a href="#CSS-边框属性（Border-和-Outline）" class="headerlink" title="CSS 边框属性（Border 和 Outline）"></a>CSS 边框属性（Border 和 Outline）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border</td>
+<td>在一个声明中设置所有的边框属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-bottom</td>
+<td>在一个声明中设置所有的下边框属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-bottom-color</td>
+<td>设置下边框的颜色。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-bottom-style</td>
+<td>设置下边框的样式。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-bottom-width</td>
+<td>设置下边框的宽度。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-color</td>
+<td>设置四条边框的颜色。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-left</td>
+<td>在一个声明中设置所有的左边框属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-left-color</td>
+<td>设置左边框的颜色。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-left-style</td>
+<td>设置左边框的样式。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-left-width</td>
+<td>设置左边框的宽度。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-right</td>
+<td>在一个声明中设置所有的右边框属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-right-color</td>
+<td>设置右边框的颜色。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-right-style</td>
+<td>设置右边框的样式。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-right-width</td>
+<td>设置右边框的宽度。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-style</td>
+<td>设置四条边框的样式。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-top</td>
+<td>在一个声明中设置所有的上边框属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-top-color</td>
+<td>设置上边框的颜色。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-top-style</td>
+<td>设置上边框的样式。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-top-width</td>
+<td>设置上边框的宽度。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>border-width</td>
+<td>设置四条边框的宽度。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>outline</td>
+<td>在一个声明中设置所有的轮廓属性。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>outline-color</td>
+<td>设置轮廓的颜色。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>outline-style</td>
+<td>设置轮廓的样式。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>outline-width</td>
+<td>设置轮廓的宽度。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-bottom-left-radius</td>
+<td>CSS3 border-bottom-left-radius 属性”)</td>
+<td>定义边框左下角的形状。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-bottom-right-radius</td>
+<td>CSS3 border-bottom-right-radius 属性”)</td>
+<td>定义边框右下角的形状。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-image</td>
+<td>CSS3 border-image 属性”)</td>
+<td>简写属性，设置所有 border-image-* 属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-image-outset</td>
+<td>CSS3 border-image-outset 属性”)</td>
+<td>规定边框图像区域超出边框的量。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-image-repeat</td>
+<td>CSS3 border-image-repeat 属性”)</td>
+<td>图像边框是否应平铺 (repeated)、铺满(rounded) 或拉伸(stretched)。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-image-slice</td>
+<td>CSS3 border-image-slice 属性”)</td>
+<td>规定图像边框的向内偏移。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-image-source</td>
+<td>CSS3 border-image-source 属性”)</td>
+<td>规定用作边框的图片。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-image-width</td>
+<td>CSS3 border-image-width 属性”)</td>
+<td>规定图片边框的宽度。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-radius</td>
+<td>CSS3 border-radius 属性”)</td>
+<td>简写属性，设置所有四个 border-*-radius 属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-top-left-radius</td>
+<td>CSS3 border-top-left-radius 属性”)</td>
+<td>定义边框左上角的形状。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>border-top-right-radius</td>
+<td>CSS3 border-top-right-radius 属性”)</td>
+<td>定义边框右下角的形状。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-decoration-break</td>
+<td></td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-shadow</td>
+<td>CSS3 box-shadow 属性”)</td>
+<td>向方框添加一个或多个阴影。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Box-属性"><a href="#Box-属性" class="headerlink" title="Box 属性"></a>Box 属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>overflow-x</td>
+<td>CSS3 overflow-x 属性”)</td>
+<td>如果内容溢出了元素内容区域，是否对内容的左 / 右边缘进行裁剪。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>overflow-y</td>
+<td>CSS3 overflow-y 属性”)</td>
+<td>如果内容溢出了元素内容区域，是否对内容的上 / 下边缘进行裁剪。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>overflow-style</td>
+<td>CSS3 overflow-style 属性”)</td>
+<td>规定溢出元素的首选滚动方法。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>rotation</td>
+<td>CSS3 rotation 属性”)</td>
+<td>围绕由 rotation-point 属性定义的点对元素进行旋转。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>rotation-point</td>
+<td>CSS3 rotation-point 属性”)</td>
+<td>定义距离上左边框边缘的偏移点。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Color-属性"><a href="#Color-属性" class="headerlink" title="Color 属性"></a>Color 属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color-profile</td>
+<td>允许使用源的颜色配置文件的默认以外的规范。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>opacity</td>
+<td>CSS3 opacity 属性”)</td>
+<td>规定元素的不透明级别。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>rendering-intent</td>
+<td>允许使用颜色配置文件渲染意图的默认以外的规范。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Content-for-Paged-Media-属性"><a href="#Content-for-Paged-Media-属性" class="headerlink" title="Content for Paged Media 属性"></a>Content for Paged Media 属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bookmark-label</td>
+<td>规定书签的标记。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>bookmark-level</td>
+<td>规定书签的级别。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>bookmark-target</td>
+<td>规定书签链接的目标。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>float-offset</td>
+<td>将元素放在 float 属性通常放置的位置的相反方向。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>hyphenate-after</td>
+<td>规定连字单词中连字符之后的最小字符数。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>hyphenate-before</td>
+<td>规定连字单词中连字符之前的最小字符数。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>hyphenate-character</td>
+<td>规定当发生断字时显示的字符串。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>hyphenate-lines</td>
+<td>指示元素中连续断字连线的最大数。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>hyphenate-resource</td>
+<td>规定帮助浏览器确定断字点的外部资源（逗号分隔的列表）。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>hyphens</td>
+<td>设置如何对单词进行拆分，以改善段落的布局。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>image-resolution</td>
+<td>规定图像的正确分辨率。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>marks</td>
+<td>向文档添加裁切标记或十字标记。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>string-set</td>
+<td></td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-尺寸属性（Dimension）"><a href="#CSS-尺寸属性（Dimension）" class="headerlink" title="CSS 尺寸属性（Dimension）"></a>CSS 尺寸属性（Dimension）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>height</td>
+<td>设置元素高度。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>max-height</td>
+<td>设置元素的最大高度。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>max-width</td>
+<td>设置元素的最大宽度。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>min-height</td>
+<td>设置元素的最小高度。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>min-width</td>
+<td>设置元素的最小宽度。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>width</td>
+<td>设置元素的宽度。</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="可伸缩框属性（Flexible-Box）"><a href="#可伸缩框属性（Flexible-Box）" class="headerlink" title="可伸缩框属性（Flexible Box）"></a>可伸缩框属性（Flexible Box）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>box-align</td>
+<td>CSS3 box-align 属性”)</td>
+<td>规定如何对齐框的子元素。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-direction</td>
+<td>CSS3 box-direction 属性”)</td>
+<td>规定框的子元素的显示方向。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-flex</td>
+<td>CSS3 box-flex 属性”)</td>
+<td>规定框的子元素是否可伸缩。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-flex-group</td>
+<td>CSS3 box-flex-group 属性”)</td>
+<td>将可伸缩元素分配到柔性分组。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-lines</td>
+<td>CSS3 box-lines 属性”)</td>
+<td>规定当超出父元素框的空间时，是否换行显示。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-ordinal-group</td>
+<td>CSS3 box-ordinal-group 属性”)</td>
+<td>规定框的子元素的显示次序。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-orient</td>
+<td>CSS3 box-orient 属性”)</td>
+<td>规定框的子元素是否应水平或垂直排列。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-pack</td>
+<td>CSS3 box-pack 属性”)</td>
+<td>规定水平框中的水平位置或者垂直框中的垂直位置。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-字体属性（Font）"><a href="#CSS-字体属性（Font）" class="headerlink" title="CSS 字体属性（Font）"></a>CSS 字体属性（Font）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>font</td>
+<td>在一个声明中设置所有字体属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>font-family</td>
+<td>规定文本的字体系列。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>font-size</td>
+<td>规定文本的字体尺寸。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>font-size-adjust</td>
+<td>为元素规定 aspect 值。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>font-stretch</td>
+<td>收缩或拉伸当前的字体系列。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>规定文本的字体样式。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>font-variant</td>
+<td>规定是否以小型大写字母的字体显示文本。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>规定字体的粗细。</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="内容生成（Generated-Content）"><a href="#内容生成（Generated-Content）" class="headerlink" title="内容生成（Generated Content）"></a>内容生成（Generated Content）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>content</td>
+<td>与 :before 以及 :after 伪元素配合使用，来插入生成内容。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>counter-increment</td>
+<td>递增或递减一个或多个计数器。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>counter-reset</td>
+<td>创建或重置一个或多个计数器。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>quotes</td>
+<td>设置嵌套引用的引号类型。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>crop</td>
+<td>允许被替换元素仅仅是对象的矩形区域，而不是整个对象。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>move-to</td>
+<td>从流中删除元素，然后在文档中后面的点上重新插入。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>page-policy</td>
+<td>确定元素基于页面的 occurrence 应用于计数器还是字符串值。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Grid-属性"><a href="#Grid-属性" class="headerlink" title="Grid 属性"></a>Grid 属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grid-columns</td>
+<td>CSS3 grid-columns 属性”)</td>
+<td>规定网格中每个列的宽度。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>grid-rows</td>
+<td>CSS3 grid-rows 属性”)</td>
+<td>规定网格中每个列的高度。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Hyperlink-属性"><a href="#Hyperlink-属性" class="headerlink" title="Hyperlink 属性"></a>Hyperlink 属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>target</td>
+<td>CSS3 target 属性”)</td>
+<td>简写属性，设置 target-name、target-new 以及 target-position 属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>target-name</td>
+<td>CSS3 target-name 属性”)</td>
+<td>规定在何处打开链接（链接的目标）。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>target-new</td>
+<td>CSS3 target-new 属性”)</td>
+<td>规定目标链接在新窗口还是在已有窗口的新标签页中打开。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>target-position</td>
+<td>CSS3 target-position 属性”)</td>
+<td>规定在何处放置新的目标链接。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-列表属性（List）"><a href="#CSS-列表属性（List）" class="headerlink" title="CSS 列表属性（List）"></a>CSS 列表属性（List）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list-style</td>
+<td>在一个声明中设置所有的列表属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>list-style-image</td>
+<td>将图象设置为列表项标记。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>list-style-position</td>
+<td>设置列表项标记的放置位置。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>list-style-type</td>
+<td>设置列表项标记的类型。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>marker-offset</td>
+<td></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-外边距属性（Margin）"><a href="#CSS-外边距属性（Margin）" class="headerlink" title="CSS 外边距属性（Margin）"></a>CSS 外边距属性（Margin）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>margin</td>
+<td>在一个声明中设置所有外边距属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>margin-bottom</td>
+<td>设置元素的下外边距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>margin-left</td>
+<td>设置元素的左外边距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>margin-right</td>
+<td>设置元素的右外边距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>margin-top</td>
+<td>设置元素的上外边距。</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Marquee-属性"><a href="#Marquee-属性" class="headerlink" title="Marquee 属性"></a>Marquee 属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>marquee-direction</td>
+<td>设置移动内容的方向。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>marquee-play-count</td>
+<td>设置内容移动多少次。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>marquee-speed</td>
+<td>设置内容滚动得多快。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>marquee-style</td>
+<td>设置移动内容的样式。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="多列属性（Multi-column）"><a href="#多列属性（Multi-column）" class="headerlink" title="多列属性（Multi-column）"></a>多列属性（Multi-column）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column-count</td>
+<td>CSS3 column-count 属性”)</td>
+<td>规定元素应该被分隔的列数。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-fill</td>
+<td>CSS3 column-fill 属性”)</td>
+<td>规定如何填充列。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-gap</td>
+<td>CSS3 column-gap 属性”)</td>
+<td>规定列之间的间隔。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-rule</td>
+<td>CSS3 column-rule 属性”)</td>
+<td>设置所有 column-rule-* 属性的简写属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-rule-color</td>
+<td>CSS3 column-rule-color 属性”)</td>
+<td>规定列之间规则的颜色。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-rule-style</td>
+<td>CSS3 column-rule-style 属性”)</td>
+<td>规定列之间规则的样式。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-rule-width</td>
+<td>CSS3 column-rule-width 属性”)</td>
+<td>规定列之间规则的宽度。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-span</td>
+<td>CSS3 column-span 属性”)</td>
+<td>规定元素应该横跨的列数。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>column-width</td>
+<td>CSS3 column-width 属性”)</td>
+<td>规定列的宽度。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>columns</td>
+<td>CSS3 columns 属性”)</td>
+<td>规定设置 column-width 和 column-count 的简写属性。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-内边距属性（Padding）"><a href="#CSS-内边距属性（Padding）" class="headerlink" title="CSS 内边距属性（Padding）"></a>CSS 内边距属性（Padding）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>padding</td>
+<td>在一个声明中设置所有内边距属性。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>padding-bottom</td>
+<td>设置元素的下内边距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>padding-left</td>
+<td>设置元素的左内边距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>padding-right</td>
+<td>设置元素的右内边距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>padding-top</td>
+<td>设置元素的上内边距。</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Paged-Media-属性"><a href="#Paged-Media-属性" class="headerlink" title="Paged Media 属性"></a>Paged Media 属性</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fit</td>
+<td>示意如何对 width 和 height 属性均不是 auto 的被替换元素进行缩放。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>fit-position</td>
+<td>定义盒内对象的对齐方式。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>image-orientation</td>
+<td>规定用户代理应用于图像的顺时针方向旋转。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>page</td>
+<td>规定元素应该被显示的页面特定类型。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>size</td>
+<td>规定页面内容包含框的尺寸和方向。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-定位属性（Positioning）"><a href="#CSS-定位属性（Positioning）" class="headerlink" title="CSS 定位属性（Positioning）"></a>CSS 定位属性（Positioning）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bottom</td>
+<td>设置定位元素下外边距边界与其包含块下边界之间的偏移。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>clear</td>
+<td>规定元素的哪一侧不允许其他浮动元素。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>clip</td>
+<td>剪裁绝对定位元素。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>cursor</td>
+<td>规定要显示的光标的类型（形状）。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>display</td>
+<td>规定元素应该生成的框的类型。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>float</td>
+<td>规定框是否应该浮动。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>left</td>
+<td>设置定位元素左外边距边界与其包含块左边界之间的偏移。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>overflow</td>
+<td>规定当内容溢出元素框时发生的事情。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>position</td>
+<td>规定元素的定位类型。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>right</td>
+<td>设置定位元素右外边距边界与其包含块右边界之间的偏移。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>top</td>
+<td>设置定位元素的上外边距边界与其包含块上边界之间的偏移。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>vertical-align</td>
+<td>设置元素的垂直对齐方式。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>规定元素是否可见。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>z-index</td>
+<td>设置元素的堆叠顺序。</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-打印属性（Print）"><a href="#CSS-打印属性（Print）" class="headerlink" title="CSS 打印属性（Print）"></a>CSS 打印属性（Print）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orphans</td>
+<td>设置当元素内部发生分页时必须在页面底部保留的最少行数。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>page-break-after</td>
+<td>CSS page-break-after 属性”)</td>
+<td>设置元素后的分页行为。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>page-break-before</td>
+<td>CSS page-break-before 属性”)</td>
+<td>设置元素前的分页行为。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>page-break-inside</td>
+<td>CSS page-break-inside 属性”)</td>
+<td>设置元素内部的分页行为。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>widows</td>
+<td>设置当元素内部发生分页时必须在页面顶部保留的最少行数。</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-表格属性（Table）"><a href="#CSS-表格属性（Table）" class="headerlink" title="CSS 表格属性（Table）"></a>CSS 表格属性（Table）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>border-collapse</td>
+<td>规定是否合并表格边框。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>border-spacing</td>
+<td>规定相邻单元格边框之间的距离。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>caption-side</td>
+<td>规定表格标题的位置。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>empty-cells</td>
+<td>规定是否显示表格中的空单元格上的边框和背景。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>table-layout</td>
+<td>设置用于表格的布局算法。</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="CSS-文本属性（Text）"><a href="#CSS-文本属性（Text）" class="headerlink" title="CSS 文本属性（Text）"></a>CSS 文本属性（Text）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>color</td>
+<td>设置文本的颜色。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>direction</td>
+<td>规定文本的方向 / 书写方向。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>letter-spacing</td>
+<td>设置字符间距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>line-height</td>
+<td>设置行高。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>text-align</td>
+<td>规定文本的水平对齐方式。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>text-decoration</td>
+<td>规定添加到文本的装饰效果。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>text-indent</td>
+<td>规定文本块首行的缩进。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>text-shadow</td>
+<td>规定添加到文本的阴影效果。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>text-transform</td>
+<td>控制文本的大小写。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>unicode-bidi</td>
+<td>设置文本方向。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>white-space</td>
+<td>规定如何处理元素中的空白。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>word-spacing</td>
+<td>设置单词间距。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>hanging-punctuation</td>
+<td>CSS3 hanging-punctuation 属性”)</td>
+<td>规定标点字符是否位于线框之外。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>punctuation-trim</td>
+<td>CSS3 punctuation-trim 属性”)</td>
+<td>规定是否对标点字符进行修剪。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>text-align-last</td>
+<td>设置如何对齐最后一行或紧挨着强制换行符之前的行。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>text-emphasis</td>
+<td>CSS3 text-emphasis 属性”)</td>
+<td>向元素的文本应用重点标记以及重点标记的前景色。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>text-justify</td>
+<td>CSS3 text-justify 属性”)</td>
+<td>规定当 text-align 设置为 “justify” 时所使用的对齐方法。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>text-outline</td>
+<td>CSS3 text-outline 属性”)</td>
+<td>规定文本的轮廓。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>text-overflow</td>
+<td>CSS3 text-overflow 属性”)</td>
+<td>规定当文本溢出包含元素时发生的事情。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>text-shadow</td>
+<td>CSS3 text-shadow 属性”)</td>
+<td>向文本添加阴影。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>text-wrap</td>
+<td>CSS3 text-wrap 属性”)</td>
+<td>规定文本的换行规则。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>word-break</td>
+<td>CSS3 word-break 属性”)</td>
+<td>规定非中日韩文本的换行规则。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>word-wrap</td>
+<td>CSS3 word-wrap 属性”)</td>
+<td>允许对长的不可分割的单词进行分割并换行到下一行。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2D-3D-转换属性（Transform）"><a href="#2D-3D-转换属性（Transform）" class="headerlink" title="2D/3D 转换属性（Transform）"></a>2D/3D 转换属性（Transform）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transform</td>
+<td>CSS3 transform 属性”)</td>
+<td>向元素应用 2D 或 3D 转换。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transform-origin</td>
+<td>CSS3 transform-origin 属性”)</td>
+<td>允许你改变被转换元素的位置。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transform-style</td>
+<td>CSS3 transform-style 属性”)</td>
+<td>规定被嵌套元素如何在 3D 空间中显示。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>perspective</td>
+<td>CSS3 perspective 属性”)</td>
+<td>规定 3D 元素的透视效果。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>perspective-origin</td>
+<td>CSS3 perspective-origin 属性”)</td>
+<td>规定 3D 元素的底部位置。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>backface-visibility</td>
+<td>CSS3 backface-visibility 属性”)</td>
+<td>定义元素在不面对屏幕时是否可见。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="过渡属性（Transition）"><a href="#过渡属性（Transition）" class="headerlink" title="过渡属性（Transition）"></a>过渡属性（Transition）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>transition</td>
+<td>CSS3 transition 属性”)</td>
+<td>简写属性，用于在一个属性中设置四个过渡属性。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-property</td>
+<td>CSS3 transition-property 属性”)</td>
+<td>规定应用过渡的 CSS 属性的名称。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-duration</td>
+<td>CSS3 transition-duration 属性”)</td>
+<td>定义过渡效果花费的时间。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-timing-function</td>
+<td>CSS3 transition-timing-function 属性”)</td>
+<td>规定过渡效果的时间曲线。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>transition-delay</td>
+<td>CSS3 transition-delay 属性”)</td>
+<td>规定过渡效果何时开始。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用户界面属性（User-interface）"><a href="#用户界面属性（User-interface）" class="headerlink" title="用户界面属性（User-interface）"></a>用户界面属性（User-interface）</h2><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+<th>CSS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>appearance</td>
+<td>CSS3 appearance 属性”)</td>
+<td>允许您将元素设置为标准用户界面元素的外观</td>
+<td>3</td>
+</tr>
+<tr>
+<td>box-sizing</td>
+<td>CSS3 box-sizing 属性”)</td>
+<td>允许您以确切的方式定义适应某个区域的具体内容。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>icon</td>
+<td>CSS3 icon 属性”)</td>
+<td>为创作者提供使用图标化等价物来设置元素样式的能力。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>nav-down</td>
+<td>CSS3 nav-down 属性”)</td>
+<td>规定在使用 arrow-down 导航键时向何处导航。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>nav-index</td>
+<td>CSS3 nav-index 属性”)</td>
+<td>设置元素的 tab 键控制次序。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>nav-left</td>
+<td>CSS3 nav-left 属性”)</td>
+<td>规定在使用 arrow-left 导航键时向何处导航。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>nav-right</td>
+<td>CSS3 nav-right 属性”)</td>
+<td>规定在使用 arrow-right 导航键时向何处导航。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>nav-up</td>
+<td>CSS3 nav-up 属性”)</td>
+<td>规定在使用 arrow-up 导航键时向何处导航。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>outline-offset</td>
+<td>CSS3 outline-offset 属性”)</td>
+<td>对轮廓进行偏移，并在超出边框边缘的位置绘制轮廓。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>resize</td>
+<td>CSS3 resize 属性”)</td>
+<td>规定是否可由用户对元素的尺寸进行调整。</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/basis/" rel="tag"># basis</a>
+          
+            <a href="/tags/css/" rel="tag"># css</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/28/vue基础/" rel="next" title="vue基础">
+                <i class="fa fa-chevron-left"></i> vue基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/28/git基础/" rel="prev" title="git基础">
+                git基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Carry Sun">
+            
+              <p class="site-author-name" itemprop="name">Carry Sun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1313648023&auto=1&height=66"></iframe>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSS-参考手册"><span class="nav-number">1.</span> <span class="nav-text">CSS 参考手册</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#插入样式表"><span class="nav-number">1.1.</span> <span class="nav-text">插入样式表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">1.2.</span> <span class="nav-text">background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">1.3.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#字体"><span class="nav-number">1.4.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.5.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ul-ol"><span class="nav-number">1.6.</span> <span class="nav-text">ul ol</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性组"><span class="nav-number">1.7.</span> <span class="nav-text">属性组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-动画属性（Animation）"><span class="nav-number">1.8.</span> <span class="nav-text">CSS3 动画属性（Animation）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-背景属性（Background）"><span class="nav-number">1.9.</span> <span class="nav-text">CSS 背景属性（Background）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-边框属性（Border-和-Outline）"><span class="nav-number">1.10.</span> <span class="nav-text">CSS 边框属性（Border 和 Outline）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Box-属性"><span class="nav-number">1.11.</span> <span class="nav-text">Box 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Color-属性"><span class="nav-number">1.12.</span> <span class="nav-text">Color 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Content-for-Paged-Media-属性"><span class="nav-number">1.13.</span> <span class="nav-text">Content for Paged Media 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-尺寸属性（Dimension）"><span class="nav-number">1.14.</span> <span class="nav-text">CSS 尺寸属性（Dimension）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可伸缩框属性（Flexible-Box）"><span class="nav-number">1.15.</span> <span class="nav-text">可伸缩框属性（Flexible Box）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-字体属性（Font）"><span class="nav-number">1.16.</span> <span class="nav-text">CSS 字体属性（Font）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容生成（Generated-Content）"><span class="nav-number">1.17.</span> <span class="nav-text">内容生成（Generated Content）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grid-属性"><span class="nav-number">1.18.</span> <span class="nav-text">Grid 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hyperlink-属性"><span class="nav-number">1.19.</span> <span class="nav-text">Hyperlink 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-列表属性（List）"><span class="nav-number">1.20.</span> <span class="nav-text">CSS 列表属性（List）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-外边距属性（Margin）"><span class="nav-number">1.21.</span> <span class="nav-text">CSS 外边距属性（Margin）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Marquee-属性"><span class="nav-number">1.22.</span> <span class="nav-text">Marquee 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多列属性（Multi-column）"><span class="nav-number">1.23.</span> <span class="nav-text">多列属性（Multi-column）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-内边距属性（Padding）"><span class="nav-number">1.24.</span> <span class="nav-text">CSS 内边距属性（Padding）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Paged-Media-属性"><span class="nav-number">1.25.</span> <span class="nav-text">Paged Media 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-定位属性（Positioning）"><span class="nav-number">1.26.</span> <span class="nav-text">CSS 定位属性（Positioning）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-打印属性（Print）"><span class="nav-number">1.27.</span> <span class="nav-text">CSS 打印属性（Print）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-表格属性（Table）"><span class="nav-number">1.28.</span> <span class="nav-text">CSS 表格属性（Table）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-文本属性（Text）"><span class="nav-number">1.29.</span> <span class="nav-text">CSS 文本属性（Text）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2D-3D-转换属性（Transform）"><span class="nav-number">1.30.</span> <span class="nav-text">2D/3D 转换属性（Transform）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#过渡属性（Transition）"><span class="nav-number">1.31.</span> <span class="nav-text">过渡属性（Transition）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户界面属性（User-interface）"><span class="nav-number">1.32.</span> <span class="nav-text">用户界面属性（User-interface）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carry Sun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wVVSoEvbz8XvyuzG34V9GyRE-gzGzoHsz", "1ze9QHCnMNQ2RS614Vw9kcwC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="basis,meta,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="浏览器安全性   meta 是 html 语言 head 区的一个辅助性标签meta 标签的作用：  搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！  meta 标签的组成：  meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实">
+<meta name="keywords" content="basis,meta">
+<meta property="og:type" content="article">
+<meta property="og:title" content="meta基础">
+<meta property="og:url" content="http://yoursite.com/2019/01/28/meta基础/index.html">
+<meta property="og:site_name" content="LeeSun">
+<meta property="og:description" content="浏览器安全性   meta 是 html 语言 head 区的一个辅助性标签meta 标签的作用：  搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！  meta 标签的组成：  meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-29T08:34:37.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="meta基础">
+<meta name="twitter:description" content="浏览器安全性   meta 是 html 语言 head 区的一个辅助性标签meta 标签的作用：  搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！  meta 标签的组成：  meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/28/meta基础/">
+
+
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4FBXXFKE4F",
+    "geolocation": "enabled",
+    "position": "top-left",
+    "margin": "10px 10px",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U3773B0366",
+    "hash": "288f524f2a01781bf4c0d64337225987"
+});
+tpwidget("show");</script>
+
+
+  <title>meta基础 | LeeSun</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b44364eb333f91df2ffdbec65c8bb3a3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeSun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/28/meta基础/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Carry Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeSun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">meta基础</h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-28T10:55:37+08:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/28/meta基础/" class="leancloud_visitors" data-flag-title="meta基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p><a href="http://www.haorooms.com/post/liulanq_think_ie" target="_blank" rel="noopener">浏览器安全性</a></p>
+</blockquote>
+<blockquote>
+<p>meta 是 html 语言 head 区的一个辅助性标签<br>meta 标签的作用：</p>
+</blockquote>
+<pre><code>搜索引擎优化（SEO），定义页面使用语言，自动刷新并指向新的页面，实现网页转换时的动态效果，控制页面缓冲，网页定级评价，控制网页显示的窗口等！
+</code></pre><blockquote>
+<p>meta 标签的组成：</p>
+</blockquote>
+<pre><code>meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实现了不同的网页功能。
+</code></pre><a id="more"></a>
+<p>##1、name 属性</p>
+<p>name 属性主要用于描述网页，与之对应的属性值为 content，content 中的内容主要是便于搜索引擎机器人查找信息和分类信息用的。</p>
+<p>meta 标签的 name 属性语法格式是：</p>
+<pre><code>&lt;meta name=&quot;参数&quot;content=&quot;具体的参数值&quot;&gt;。
+</code></pre><p>其中 name 属性主要有以下几种参数：</p>
+<p>###A、Keywords(关键字)</p>
+<p>说明：keywords 用来告诉搜索引擎你网页的关键字是什么。</p>
+<p>举例：</p>
+<pre><code>&lt;meta name=&quot;keywords&quot;content=&quot;meta总结,html meta,meta属性,meta跳转&quot;&gt;
+</code></pre><p>###B、description(网站内容描述)</p>
+<p>说明：description 用来告诉搜索引擎你的网站主要内容。</p>
+<p>举例：</p>
+<pre><code>&lt;meta name=&quot;description&quot;content=&quot;haorooms博客,html的meta总结，meta是html语言head区的一个辅助性标签。&quot;&gt;
+</code></pre><p>###C、robots(机器人向导)</p>
+<p>说明：robots 用来告诉搜索机器人哪些页面需要索引，哪些页面不需要索引。</p>
+<p>content 的参数有 all,none,index,noindex,follow,nofollow。默认是 all。</p>
+<p>举例：</p>
+<pre><code>&lt;meta name=&quot;robots&quot;content=&quot;none&quot;&gt;
+</code></pre><p>具体参数如下：</p>
+<p>信息参数为 all：文件将被检索，且页面上的链接可以被查询；</p>
+<p>信息参数为 none：文件将不被检索，且页面上的链接不可以被查询；</p>
+<p>信息参数为 index：文件将被检索；</p>
+<p>信息参数为 follow：页面上的链接可以被查询；</p>
+<p>信息参数为 noindex：文件将不被检索，但页面上的链接可以被查询；</p>
+<p>信息参数为 nofollow：文件将被检索，但页面上的链接不可以被查询；</p>
+<p>###D、author(作者)</p>
+<p>说明：标注网页的作者</p>
+<p>举例：</p>
+<pre><code>&lt;meta name=&quot;author&quot;content=&quot;root,root@xxxx.com&quot;&gt;
+</code></pre><p>######E、generator</p>
+<pre><code>&lt;meta name=&quot;generator&quot;content=&quot;信息参数&quot;/&gt;
+</code></pre><p>meta 标签的 generator 的信息参数，代表说明网站的采用的什么软件制作。</p>
+<p>###F、COPYRIGHT</p>
+<pre><code>&lt;META NAME=&quot;COPYRIGHT&quot;CONTENT=&quot;信息参数&quot;&gt;
+</code></pre><p>meta 标签的 COPYRIGHT 的信息参数，代表说明网站版权信息。</p>
+<p>###G、revisit-after</p>
+<pre><code>&lt;META name=&quot;revisit-after&quot;CONTENT=&quot;7days&quot;&gt;
+</code></pre><p>revisit-after 代表网站重访,7days 代表 7 天，依此类推。</p>
+<p>##2、http-equiv 属性</p>
+<p>http-equiv 顾名思义，相当于 http 的文件头作用，它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为 content，content 中的内容其实就是各个参数的变量值。</p>
+<p>meta 标签的 http-equiv 属性语法格式是：</p>
+<pre><code>&lt;meta http-equiv=&quot;参数&quot;content=&quot;参数变量值&quot;&gt;；
+</code></pre><p>其中 http-equiv 属性主要有以下几种参数：</p>
+<p>###A、Expires(期限)</p>
+<p>说明：可以用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输。</p>
+<p>用法：</p>
+<pre><code>&lt;meta http-equiv=&quot;expires&quot;content=&quot;Fri,12Jan200118:18:18GMT&quot;&gt;
+</code></pre><p>注意：必须使用 GMT 的时间格式。</p>
+<p>###B、Pragma(cache 模式)</p>
+<p>说明：禁止浏览器从本地计算机的缓存中访问页面内容。</p>
+<p>用法：</p>
+<pre><code>&lt;meta http-equiv=&quot;Pragma&quot;content=&quot;no-cache&quot;&gt;
+</code></pre><p>注意：这样设定，访问者将无法脱机浏览。</p>
+<p>###C、Refresh(刷新)</p>
+<p>说明：自动刷新并指向新页面。</p>
+<p>用法：</p>
+<pre><code>&lt;meta http-equiv=&quot;Refresh&quot;content=&quot;2;URL=http://www.haorooms.com&quot;&gt; //(注意后面的引号，分别在秒数的前面和网址的后面)
+</code></pre><p>注意：其中的 2 是指停留 2 秒钟后自动刷新到 URL 网址。</p>
+<p>###D、Set-Cookie(cookie 设定)</p>
+<p>说明：如果网页过期，那么存盘的 cookie 将被删除。</p>
+<p>用法：</p>
+<pre><code>&lt;meta http-equiv=&quot;Set-Cookie&quot;content=&quot;cookie value=xxx;expires=Friday,12-Jan-200118:18:18GMT；path=/&quot;&gt;
+</code></pre><p>注意：必须使用 GMT 的时间格式。</p>
+<p>######E、Window-target(显示窗口的设定)</p>
+<p>说明：强制页面在当前窗口以独立页面显示。</p>
+<p>用法：</p>
+<pre><code>&lt;meta http-equiv=&quot;Window-target&quot;content=&quot;_top&quot;&gt;
+</code></pre><p>注意：用来防止别人在框架里调用自己的页面。</p>
+<p>######F、content-Type(显示字符集的设定)</p>
+<p>说明：设定页面使用的字符集。</p>
+<p>用法：</p>
+<pre><code>&lt;meta http-equiv=&quot;content-Type&quot;content=&quot;text/html;charset=gb2312&quot;&gt;
+</code></pre><p>具体如下：</p>
+<p>meta 标签的 charset 的信息参数如 GB2312 时，代表说明网站是采用的编码是简体中文；</p>
+<p>meta 标签的 charset 的信息参数如 BIG5 时，代表说明网站是采用的编码是繁体中文；</p>
+<p>meta 标签的 charset 的信息参数如 iso-2022-jp 时，代表说明网站是采用的编码是日文；</p>
+<p>meta 标签的 charset 的信息参数如 ks_c_5601 时，代表说明网站是采用的编码是韩文；</p>
+<p>meta 标签的 charset 的信息参数如 ISO-8859-1 时，代表说明网站是采用的编码是英文；</p>
+<p>meta 标签的 charset 的信息参数如 UTF-8 时，代表世界通用的语言编码；</p>
+<p>###G、content-Language（显示语言的设定）</p>
+<p>用法：</p>
+<pre><code>&lt;meta http-equiv=&quot;Content-Language&quot;content=&quot;zh-cn&quot;/&gt;
+</code></pre><p>###H、Cache-Control 指定请求和响应遵循的缓存机制。</p>
+<p>Cache-Control 指定请求和响应遵循的缓存机制。在请求消息或响应消息中设置 Cache-Control 并不会修改另一个消息处理过程中的缓存处理过程。请求时的缓存指令包括 no-cache、no-store、max-age、max-stale、min-fresh、only-if-cached，响应消息中的指令包括 public、private、no-cache、no-store、no-transform、must-revalidate、proxy-revalidate、max-age。各个消息中的指令含义如下</p>
+<p>Public 指示响应可被任何缓存区缓存</p>
+<p>Private 指示对于单个用户的整个或部分响应消息，不能被共享缓存处理。这允许服务器仅仅描述当用户的部分响应消息，此响应消息对于其他用户的请求无效</p>
+<p>no-cache 指示请求或响应消息不能缓存</p>
+<p>no-store 用于防止重要的信息被无意的发布。在请求消息中发送将使得请求和响应消息都不使用缓存。</p>
+<p>max-age 指示客户机可以接收生存期不大于指定时间（以秒为单位）的响应</p>
+<p>min-fresh 指示客户机可以接收响应时间小于当前时间加上指定时间的响应</p>
+<p>max-stale 指示客户机可以接收超出超时期间的响应消息。如果指定 max-stale 消息的值，那么客户机可以接收超出超时期指定值之内的响应消息。</p>
+<p>###J、http-equiv=”imagetoolbar”</p>
+<pre><code>&lt;meta http-equiv=&quot;imagetoolbar&quot;content=&quot;false&quot;/&gt;
+</code></pre><p>指定是否显示图片工具栏，当为 false 代表不显示，当为 true 代表显示。</p>
+<p>###K、Content-Script-Type</p>
+<pre><code>&lt;Meta http-equiv=&quot;Content-Script-Type&quot;Content=&quot;text/javascript&quot;&gt;
+</code></pre><p>W3C 网页规范，指明页面中脚本的类型。</p>
+<p>###L、页面跳转，只用于 IE</p>
+<p>具体请看 <a href="http://www.haorooms.com/post/liulanq_think_ie" target="_blank" rel="noopener">http://www.haorooms.com/post/liulanq_think_ie</a></p>
+<p>HTML &lt; base &gt; 标签<br>为页面上所有链接指定默认打开方式：</p>
+<p>例如：</p>
+<pre><code>&lt;base target=&quot;_self&quot;&gt;
+</code></pre><p>指定页面中所有标签都是本页打开！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/basis/" rel="tag"># basis</a>
+          
+            <a href="/tags/meta/" rel="tag"># meta</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/28/nodejs-koa/" rel="next" title="nodejs-koa">
+                <i class="fa fa-chevron-left"></i> nodejs-koa
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/29/h5-c3基础/" rel="prev" title="h5-c3基础">
+                h5-c3基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Carry Sun">
+            
+              <p class="site-author-name" itemprop="name">Carry Sun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1313648023&auto=1&height=66"></iframe>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carry Sun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wVVSoEvbz8XvyuzG34V9GyRE-gzGzoHsz", "1ze9QHCnMNQ2RS614Vw9kcwC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

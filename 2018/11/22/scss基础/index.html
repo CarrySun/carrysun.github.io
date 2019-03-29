@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="basis,scss,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="安装12npm install node-sass --savenpm install sass-loader --save 入门变量12$color: red;$border: 1px solid $color; 嵌套12345678910111213141516171819202122232425262728293031323334353637383940414243div &amp;#123;  a">
+<meta name="keywords" content="basis,scss">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scss基础">
+<meta property="og:url" content="http://yoursite.com/2018/11/22/scss基础/index.html">
+<meta property="og:site_name" content="LeeSun">
+<meta property="og:description" content="安装12npm install node-sass --savenpm install sass-loader --save 入门变量12$color: red;$border: 1px solid $color; 嵌套12345678910111213141516171819202122232425262728293031323334353637383940414243div &amp;#123;  a">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-01-29T08:33:19.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="scss基础">
+<meta name="twitter:description" content="安装12npm install node-sass --savenpm install sass-loader --save 入门变量12$color: red;$border: 1px solid $color; 嵌套12345678910111213141516171819202122232425262728293031323334353637383940414243div &amp;#123;  a">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/22/scss基础/">
+
+
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4FBXXFKE4F",
+    "geolocation": "enabled",
+    "position": "top-left",
+    "margin": "10px 10px",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U3773B0366",
+    "hash": "288f524f2a01781bf4c0d64337225987"
+});
+tpwidget("show");</script>
+
+
+  <title>scss基础 | LeeSun</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b44364eb333f91df2ffdbec65c8bb3a3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeSun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/22/scss基础/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Carry Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeSun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">scss基础</h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-22T15:41:32+08:00">
+                2018-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/22/scss基础/" class="leancloud_visitors" data-flag-title="scss基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install node-sass --save</span><br><span class="line">npm install sass-loader --save</span><br></pre></td></tr></table></figure>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$color</span>: red;</span><br><span class="line"><span class="variable">$border</span>: <span class="number">1px</span> solid <span class="variable">$color</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="selector-tag">a</span>,</span><br><span class="line">  <span class="selector-tag">i</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">    &amp;:hover &#123;</span><br><span class="line">      <span class="attribute">color</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">article</span> &#123;</span><br><span class="line">  <span class="comment">// 同层全体组合选择器 ~，选择所有跟在article后的同层article元素，不管它们之间隔了多少其他元素：</span></span><br><span class="line"></span><br><span class="line">  ~ <span class="selector-tag">article</span> &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">1px</span> dashed <span class="number">#ccc</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 子组合选择器 &gt; 选择一个元素的直接子元素</span></span><br><span class="line"></span><br><span class="line">  &gt; <span class="selector-tag">section</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#eee</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-tag">dl</span> &gt; &#123;</span><br><span class="line">    <span class="selector-tag">dt</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#333</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">dd</span> &#123;</span><br><span class="line">      <span class="attribute">color</span>: <span class="number">#555</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 同层相邻组合选择器 + 选择 nav 元素后紧跟的 article 元素：</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">nav</span> + &amp; &#123;</span><br><span class="line">    <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: &#123;</span><br><span class="line">    style: solid;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="导入"><a href="#导入" class="headerlink" title="导入"></a>导入</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">import</span> <span class="string">"variables"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 部分文件  _sky.scss</span></span><br><span class="line">@<span class="keyword">import</span> <span class="string">"_sky"</span>;</span><br><span class="line">@<span class="keyword">import</span> <span class="string">"sky"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认变量值</span></span><br><span class="line"><span class="comment">// !default 如果这个变量被声明赋值了，那就用它声明的值，否则就用这个默认值。</span></span><br><span class="line"><span class="variable">$width</span>: <span class="number">400px</span> !default;</span><br><span class="line"></span><br><span class="line"><span class="comment">//嵌套导入</span></span><br><span class="line"><span class="comment">// _blue-theme.scss</span></span><br><span class="line"><span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: blue;</span><br><span class="line">  <span class="attribute">color</span>: white;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//index.scss</span></span><br><span class="line"><span class="selector-class">.blue-theme</span> &#123;</span><br><span class="line">  @<span class="keyword">import</span> <span class="string">"blue-theme"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//生成的结果跟你直接在.blue-theme选择器内写_blue-theme.scss文件的内容完全一样。</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.blue-theme</span> &#123;</span><br><span class="line">  <span class="selector-tag">aside</span> &#123;</span><br><span class="line">    <span class="attribute">background</span>: blue;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="静默注释"><a href="#静默注释" class="headerlink" title="静默注释"></a>静默注释</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#333</span>; <span class="comment">// no</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span>; <span class="comment">/* yes */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">color</span> <span class="comment">/* no */</span>: <span class="number">#333</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">1</span>; <span class="comment">/* no */</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="混合器"><a href="#混合器" class="headerlink" title="混合器"></a>混合器</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、</span></span><br><span class="line">@<span class="keyword">mixin</span> no-bullets(<span class="variable">$color</span>: red) &#123;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">  <span class="selector-tag">li</span> &#123;</span><br><span class="line">    <span class="attribute">list-style-image</span>: none;</span><br><span class="line">    <span class="attribute">list-style-type</span>: none;</span><br><span class="line">    <span class="attribute">margin-left</span>: <span class="number">0px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$color</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 允许通过语法$name: value的形式指定每个参数的值</span></span><br><span class="line"><span class="selector-tag">ul</span><span class="selector-class">.plain</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#444</span>;</span><br><span class="line">  @<span class="keyword">include</span> no-bullets(blue);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="selector-tag">ul</span><span class="selector-class">.plain</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#444</span>;</span><br><span class="line">  <span class="attribute">list-style</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">ul</span><span class="selector-class">.plain</span> <span class="selector-tag">li</span> &#123;</span><br><span class="line">  <span class="attribute">list-style-image</span>: none;</span><br><span class="line">  <span class="attribute">list-style-type</span>: none;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">0px</span>;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过选择器继承继承样式</span></span><br><span class="line"><span class="selector-class">.error</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid red;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="number">#fdd</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.seriousError</span> &#123;</span><br><span class="line">  @<span class="keyword">extend</span> .error;</span><br><span class="line">  <span class="attribute">border-width</span>: <span class="number">3px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li><p>‘$-‘ == ‘$_‘：“中划线” 命名的内容和 “下划线” 命名的内容是互通的</p>
+</li>
+<li><p>约定：sass 局部文件的文件名以下划线开头。这样，sass 就不会在编译时单独编译这个文件输出 css，而只把这个文件用作导入。<br>当你@import 一个局部文件时，还可以不写文件的全名，即省略文件名开头的下划线</p>
+</li>
+<li><p>下列三种情况下会生成原生的 CSS@import，尽管这会造成浏览器解析 css 时的额外下载：<br>被导入文件的名字以.css 结尾；<br>被导入文件的名字是一个 URL 地址（比如<a href="http://www.sass.hk/css/css.css）" target="_blank" rel="noopener">http://www.sass.hk/css/css.css）</a> 由此可用谷歌字体 API 提供的相应服务；<br>被导入文件的名字是 CSS 的 url()值。</p>
+</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>混合宏</th>
+<th>继承</th>
+<th>占位符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>声明方式</td>
+<td>@mixin</td>
+<td>.class</td>
+<td>%placeholder</td>
+</tr>
+<tr>
+<td>调用方式</td>
+<td>@include</td>
+<td>@extend</td>
+<td>@extend</td>
+</tr>
+<tr>
+<td>使用环境</td>
+<td>可以传变量</td>
+<td>不可以传变量，相同样式直接继承，不会造成代码冗余；基类未被继承时，也会被编译成 css 代码</td>
+<td>基类未被继承时不会被编译成 css 代码</td>
+</tr>
+<tr>
+<td>使用环境</td>
+<td>使用环境如果相同代码块需要在不同的环境传递不同的值时,可通过混合宏来定义重复使用的代码块 不足:就是编译出来的 CSS 代码什么多次出现调用的混合宏对应的代码块,使用文件变得臃肿,代码冗余</td>
+<td>如果相同代码块不需要传递不同的值,并且此代码块已在 Sass 文件中定义,此进可以通过 sass 的继承来调用已存在的基 类。使用继承将会将调用相同基类的代码合并在一起不足:如果基类,并不存在于 HTM 结构时,不管调用与不调 用,在编译出来的 CSS 中都将产生基类对应的样式代码</td>
+<td>占位和继承基本类似,唯一不同的是,相同代码块并没有在基类中存中,而是额外声明 如果不调用已声明的占位符,将不会产生任何样式代码,如果在不同选择器调用占位符,那么编译出来的 cSS 代码将会把相同的代码合并在一起</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/basis/" rel="tag"># basis</a>
+          
+            <a href="/tags/scss/" rel="tag"># scss</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/21/vue-env/" rel="next" title="vue_env">
+                <i class="fa fa-chevron-left"></i> vue_env
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/26/mpvue开发小程序/" rel="prev" title="mpvue开发小程序">
+                mpvue开发小程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Carry Sun">
+            
+              <p class="site-author-name" itemprop="name">Carry Sun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1313648023&auto=1&height=66"></iframe>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入门"><span class="nav-number">2.</span> <span class="nav-text">入门</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套"><span class="nav-number">2.2.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#导入"><span class="nav-number">2.3.</span> <span class="nav-text">导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静默注释"><span class="nav-number">2.4.</span> <span class="nav-text">静默注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合器"><span class="nav-number">2.5.</span> <span class="nav-text">混合器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">2.6.</span> <span class="nav-text">继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">3.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">4.</span> <span class="nav-text">使用</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carry Sun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wVVSoEvbz8XvyuzG34V9GyRE-gzGzoHsz", "1ze9QHCnMNQ2RS614Vw9kcwC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

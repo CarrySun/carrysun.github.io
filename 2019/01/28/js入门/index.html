@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="入门,js,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第1章　JavaScript简介1、核心（ECMAScript）提供核心语言功能； 语法 类型 语句 关键字 保留字 操作符 对象">
+<meta name="keywords" content="入门,js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js入门">
+<meta property="og:url" content="http://yoursite.com/2019/01/28/js入门/index.html">
+<meta property="og:site_name" content="LeeSun">
+<meta property="og:description" content="第1章　JavaScript简介1、核心（ECMAScript）提供核心语言功能； 语法 类型 语句 关键字 保留字 操作符 对象">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-21T03:37:41.303Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js入门">
+<meta name="twitter:description" content="第1章　JavaScript简介1、核心（ECMAScript）提供核心语言功能； 语法 类型 语句 关键字 保留字 操作符 对象">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/28/js入门/">
+
+
+
+<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+<script>tpwidget("init", {
+    "flavor": "bubble",
+    "location": "WX4FBXXFKE4F",
+    "geolocation": "enabled",
+    "position": "top-left",
+    "margin": "10px 10px",
+    "language": "zh-chs",
+    "unit": "c",
+    "theme": "chameleon",
+    "uid": "U3773B0366",
+    "hash": "288f524f2a01781bf4c0d64337225987"
+});
+tpwidget("show");</script>
+
+
+  <title>js入门 | LeeSun</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?b44364eb333f91df2ffdbec65c8bb3a3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LeeSun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/28/js入门/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Carry Sun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LeeSun">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js入门</h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-28T10:40:27+08:00">
+                2019-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/28/js入门/" class="leancloud_visitors" data-flag-title="js入门">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第1章-JavaScript简介"><a href="#第1章-JavaScript简介" class="headerlink" title="第1章　JavaScript简介"></a>第1章　JavaScript简介</h2><h3 id="1、核心（ECMAScript）提供核心语言功能；"><a href="#1、核心（ECMAScript）提供核心语言功能；" class="headerlink" title="1、核心（ECMAScript）提供核心语言功能；"></a>1、核心（ECMAScript）提供核心语言功能；</h3><ul>
+<li>语法</li>
+<li>类型</li>
+<li>语句</li>
+<li>关键字</li>
+<li>保留字</li>
+<li>操作符</li>
+<li>对象</li>
+</ul>
+<a id="more"></a>
+<h3 id="2、文档对象模型（DOM）提供访问和操作网页内容的方法和接口；"><a href="#2、文档对象模型（DOM）提供访问和操作网页内容的方法和接口；" class="headerlink" title="2、文档对象模型（DOM）提供访问和操作网页内容的方法和接口；"></a>2、文档对象模型（DOM）提供访问和操作网页内容的方法和接口；</h3><pre><code>是针对XML 但经过扩展用于HTML的应用程序编程接口（API）,开发人员可以轻松自如地删除、添加、替换或修改任何节点。
+</code></pre><ul>
+<li><p>1级：</p>
+<pre><code>DOM核心（DOM Core）
+DOM HTML
+</code></pre></li>
+<li><p>2级：</p>
+<pre><code>DOM 视图(DOM Views)：定义了跟踪不同文档（例如，应用CSS之前和之后的文档）视图的接口；
+DOM 事件（DOM Events）
+DOM 样式(DOM Style)
+DOM 遍历和范围 定义了遍历和操作文档树的接口
+</code></pre></li>
+<li><p>3级：</p>
+<pre><code>DOM 加载和保存（DOM Load and Save）模块
+DOM 验证（DOM Validation）模块
+</code></pre></li>
+</ul>
+<p>//主流浏览器对 DOM 标准的支持情况</p>
+<h3 id="3、浏览器对象模型（BOM）提供与浏览器交互的方法和接口。"><a href="#3、浏览器对象模型（BOM）提供与浏览器交互的方法和接口。" class="headerlink" title="3、浏览器对象模型（BOM）提供与浏览器交互的方法和接口。"></a>3、浏览器对象模型（BOM）提供与浏览器交互的方法和接口。</h3><ul>
+<li>从根本上讲，BOM 只处理浏览器窗口和框架；</li>
+<li>习惯上把所有针对浏览器的JavaScript扩展算作 BOM 的一部分：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">弹出新浏览器窗口的功能；</span><br><span class="line">移动、缩放和关闭浏览器窗口的功能；</span><br><span class="line">提供浏览器详细信息的 navigator 对象；</span><br><span class="line">提供浏览器所加载页面的详细信息的 location 对象；</span><br><span class="line">提供用户显示器分辨率详细信息的 screen 对象；</span><br><span class="line">对 cookies 的支持；</span><br><span class="line">像 XMLHttpRequest 和 IE 的 ActiveXObject 这样的自定义对象。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="第2章-在HTML中使用JavaScript"><a href="#第2章-在HTML中使用JavaScript" class="headerlink" title="第2章　在HTML中使用JavaScript"></a>第2章　在HTML中使用JavaScript</h2><h3 id="2-1、script"><a href="#2-1、script" class="headerlink" title="2.1、script"></a>2.1、script</h3><h4 id="2-1-1、常识"><a href="#2-1-1、常识" class="headerlink" title="2.1.1、常识"></a>2.1.1、常识</h4><ul>
+<li><p>一般都把全部 JavaScript 引用放在<body>元素中页面内容的后面<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></p>
+</li>
+<li><p>当浏览器遇到字符串”“时，就会认为那是结束的标签。而通过转义字符“/”可以解决这个问题 “&lt;\/script&gt;”</p>
+</li>
+</ul>
+<h4 id="2-1-2、属性"><a href="#2-1-2、属性" class="headerlink" title="2.1.2、属性"></a>2.1.2、属性</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">async：可选。只对外部脚本文件有效。</span><br><span class="line">defer：可选。只对外部脚本文件有效。</span><br><span class="line">src：可选。表示包含要执行代码的外部文件。</span><br><span class="line">type：可选。text/javascript</span><br><span class="line">charset：可选。被浏览器忽略，很少有人用。</span><br><span class="line">language：已废弃。</span><br><span class="line">```    </span><br><span class="line">#### 2.1.3、加载顺序</span><br><span class="line">![defe_async](https://sfault-image.b0.upaiyun.com/28/4a/284aec5bb7f16b3ef4e7482110c5ddbb_articlex)</span><br><span class="line"></span><br><span class="line">`蓝色线代表网络读取，红色线代表执行时间，这俩都是针对脚本的；绿色线代表 HTML 解析。`</span><br><span class="line"></span><br><span class="line">#### 2.1.4、defer async</span><br><span class="line">https://segmentfault.com/q/1010000000640869</span><br><span class="line">http://ued.ctrip.com/blog/script-defer-and-async.html#</span><br><span class="line"></span><br><span class="line">- 相同点:</span><br></pre></td></tr></table></figure>
+<p>加载文件时不阻塞页面渲染,异步<br>对于inline的script无效<br>使用这两个属性的脚本中不能调用document.write方法<br>有脚本的onload的事件回调<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">- 区别点:</span><br><span class="line"></span><br><span class="line">1、html的版本html4.0中定义了defer；html5.0中定义了async</span><br><span class="line">2、执行时刻:</span><br><span class="line">```    </span><br><span class="line">    没有 defer 或 async，浏览器读到js会立即加载并执行指定的脚本   </span><br><span class="line">    每一个async属性的脚本都在它下载结束之后立刻执行，同时会在window的load事件之前执行。所以就有可能出现脚本执行顺序被打乱的情况；</span><br><span class="line">    每一个defer属性的脚本都是在页面解析完毕之后，按照原本的顺序执行，同时会在document的DOMContentLoaded之前执行。</span><br><span class="line">``` </span><br><span class="line">3、浏览器</span><br><span class="line">|Feature|Chrome|Firefox (Gecko)|Internet Explorer|Opera|Safari|</span><br><span class="line">|---|---|---|---|---|---|</span><br><span class="line">|Basic support|1.0|1.0 (1.7 or earlier)|(Supported)|(Supported)|(Supported)|</span><br><span class="line">|async |attribute	|(Supported)|3.6 (1.9.2)|10|—|(Supported)|</span><br><span class="line">|defer| attribute	|(Supported)|3.5 (1.9.1)|4|—|(Supported)|</span><br><span class="line">### 2.2、noscript</span><br><span class="line">- 可以包含能够出现在文档&lt;body&gt;中的任何 HTML元素——&lt;script&gt;元素除外。</span><br><span class="line">- 使用场景</span><br></pre></td></tr></table></figure></p>
+<p>浏览器不支持脚本。<br>浏览器支持脚本，但脚本被禁用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">&lt;noscript&gt;</span><br><span class="line">    &lt;p&gt;本页面需要浏览器支持（启用）JavaScript。</span><br><span class="line">&lt;/noscript&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="第3章-基本概念"><a href="#第3章-基本概念" class="headerlink" title="第3章　基本概念　"></a>第3章　基本概念　</h2><h3 id="3-1、语法"><a href="#3-1、语法" class="headerlink" title="3.1、语法"></a>3.1、语法</h3><h4 id="区分大小写"><a href="#区分大小写" class="headerlink" title="区分大小写"></a>区分大小写</h4><pre><code>true != True
+</code></pre><h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><pre><code>第一个字符必须是一个字母、下划线（_）或一个美元符号（$）；
+其他字符可以是字母、下划线、美元符号或数字
+ECMAScript标识符采用驼峰大小写格式，也就是第一个字母小写，剩下的每个单词的首字母大写，doSomethingImportant 
+</code></pre><h4 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h4><pre><code>// 单行注释
+/*
+* 这是一个多行
+* （块级）注释
+*/ 
+</code></pre><h4 id="严格模式-“use-strict”"><a href="#严格模式-“use-strict”" class="headerlink" title="严格模式 “use strict”"></a>严格模式 “use strict”</h4><pre><code>es5 将es3中不确定的行为得到处理 不安全的操作抛出出错误
+</code></pre><h4 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h4><pre><code>;
+if{}
+</code></pre><h3 id="3-2、关键字和保留字"><a href="#3-2、关键字和保留字" class="headerlink" title="3.2、关键字和保留字　"></a>3.2、关键字和保留字　</h3><h4 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h4><pre><code>break do instanceof typeof
+case else new var
+catch finally return void
+continue for switch while
+debugger function this with
+default if throw
+delete in try 
+</code></pre><h4 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h4><pre><code>abstract enum int short
+boolean export interface static
+byte extends long super
+char final native synchronized
+class float package throws
+const goto private transient
+debugger implements protected volatile
+double import public 
+</code></pre><ul>
+<li><p>es5把在非严格模式下运行时的保留字缩减为下列这些：</p>
+<p>  class enum extends super<br>  const export import</p>
+</li>
+<li><p>在严格模式下，第 5 版还对以下保留字施加了限制：</p>
+<pre><code>implements package public
+interface private static
+let protected yield 
+eval arguments
+</code></pre></li>
+</ul>
+<p>###3.3、变量　</p>
+<ul>
+<li>可以在修改变量值的同时修改值的类型</li>
+<li>作用域:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var 声明后的变量是局部变量</span><br><span class="line">function test()&#123;</span><br><span class="line"> var message = &quot;hi&quot;; // 局部变量</span><br><span class="line"> note = &quot;hi&quot;; // 全局变量 不推荐</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>###3.4、数据类型　</p>
+<h4 id="3-4-1、typeof操作符"><a href="#3-4-1、typeof操作符" class="headerlink" title="3.4.1、typeof操作符"></a>3.4.1、typeof操作符</h4><h4 id="3-4-2、Undefined类型"><a href="#3-4-2、Undefined类型" class="headerlink" title="3.4.2、Undefined类型　"></a>3.4.2、Undefined类型　</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">把所有变量进行初始化，那么当typeof操作符返回&quot;undefined&quot;值时，我们就知道被检测的变量还没有被声明，而不是尚未初始化。</span><br><span class="line"></span><br><span class="line">// message声明之后默认取得了 undefined 值</span><br><span class="line">// age没有声明</span><br><span class="line">var message; </span><br><span class="line">alert(message == undefined); //true </span><br><span class="line">alert(message); // &quot;undefined&quot;</span><br><span class="line">alert(age); // 产生错误age is not defined</span><br><span class="line">alert(typeof message); // &quot;undefined&quot;</span><br><span class="line">alert(typeof age); // &quot;undefined&quot; </span><br><span class="line">```    </span><br><span class="line">#### 3.4.3、Null类型（空对象指针）</span><br></pre></td></tr></table></figure>
+<pre><code>把准备用于保存对象的变量初始化为null，检查null值就可以知道相应的变量是否已经保存了一个对象的引用。
+只要意在保存对象的变量还没有真正保存对象，就应该明确地让该变量保存 null 值。这样做不仅可以体现 null 作为空对象指针的惯例，而且也有助于进一步区分 null 和 undefined。
+
+var car = null;
+if (car != null){
+  // 对 car 对象执行某些操作
+} 
+alert(typeof car); // &quot;object&quot; 
+alert(null == undefined); //true
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 3.4.4、[null nudefined区别](http://www.ruanyifeng.com/blog/2014/03/undefined-vs-null.html)</span><br></pre></td></tr></table></figure>
+<p>null表示”没有对象”，即该处不应该有值<br>（1） 作为函数的参数，表示该函数的参数不是对象。<br>（2） 作为对象原型链的终点<br> Object.getPrototypeOf(Object.prototype)<br> // null</p>
+<p>undefined表示”缺少值”，就是此处应该有一个值，但是还没有定义<br>（1）变量被声明了，但没有赋值时，就等于undefined。<br>（2) 调用函数时，应该提供的参数没有提供，该参数等于undefined。<br>（3）对象没有赋值的属性，该属性的值为undefined。<br>（4）函数没有返回值时，默认返回undefined。<br>  var i;<br>  i // undefined</p>
+<p>  function f(x){console.log(x)}<br>  f() // undefined</p>
+<p>  var  o = new Object();<br>  o.p // undefined</p>
+<p>  var x = f();<br>  x // undefined<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#### 3.4.5、Boolean类型</span><br></pre></td></tr></table></figure></p>
+<p>var found = true;<br>var lost = false; </p>
+<p>var message = “Hello world!”;<br>var messageAsBoolean = Boolean(message); //true<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line">| 数据类型 | 转换为true的值 | 转换为false的值|</span><br><span class="line">| --------   | :-----:  | :----:  |</span><br><span class="line">|Boolean    |true             |           false|</span><br><span class="line">|String     |任何非空字符串          |      &quot;&quot;（空字符串）|</span><br><span class="line">|Number     |任何非零数字值（包括无穷大）   | 0和NaN|</span><br><span class="line">|Object     |任何对象             |        null|</span><br><span class="line">|Undefined  |n/a              |          undefined |</span><br><span class="line">n/a（或 N/A），意思是“不适用”。</span><br><span class="line"></span><br><span class="line">#### 3.4.6、Number类型　</span><br><span class="line"></span><br><span class="line">    在进行算术计算时，所有以八进制和十六进制表示的数值最终都将被转换成十进制数值。</span><br><span class="line">    </span><br><span class="line">    永远不要测试某个特定的浮点数值。基于IEEE754 数值的浮点计算的通病</span><br><span class="line">    0.1 + 0.2 = 0.30000000000000004</span><br><span class="line">    0.1 + 0.13 = 0.23</span><br><span class="line"></span><br><span class="line">- 数值范围：isFinite()</span><br><span class="line"> </span><br><span class="line">    isFinite()函数在参数位于最小与最大数值之间时会返回 true</span><br><span class="line">    范围：</span><br><span class="line">    Number.MIN_VALUE    5e-324|                     -Infinity</span><br><span class="line">    Number.MAX_VALUE    1.7976931348623157e+308     Infinity</span><br><span class="line"></span><br><span class="line">- NaN：isNaN()</span><br><span class="line"></span><br><span class="line">        isNaN()在接收到一个值之后</span><br><span class="line">        1、将这个值转换为数值。某些不是数值的值会直接转换为数值，例如字符串&quot;10&quot;或 Boolean 值。 返回false</span><br><span class="line">        2、任何不能被转换为数值的值都会导致这个函数返回 true。</span><br><span class="line">        </span><br><span class="line">        在基于对象调用 isNaN()</span><br><span class="line">        函数时，会首先调用对象的 valueOf()方法，然后确定该方法返回的值是否可以转</span><br><span class="line">        换为数值。如果不能，则基于这个返回值再调用 toString()方法，再测试返回值。</span><br><span class="line">        </span><br><span class="line">        任何数值除以0会返回NaN</span><br><span class="line">        NaN 即非数值 (Not a Number)是一个特殊的数值</span><br><span class="line">        用于表示一个本来要返回数值的操作数未返回数值的情况（这样就不会抛出错误了）。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 数值转换：Number()、parseInt()和 parseFloat()</span><br><span class="line"></span><br><span class="line">Number():</span><br><span class="line"></span><br><span class="line">    如果是 Boolean 值，true 和 false 将分别被转换为 1 和 0。</span><br><span class="line">    如果是数字值，只是简单的传入和返回。</span><br><span class="line">    如果是 null 值，返回 0。</span><br><span class="line">    如果是 undefined，返回 NaN。</span><br><span class="line">    如果是字符串，遵循下列规则：</span><br><span class="line">        如果字符串中只包含数字（包括前面带正号或负号的情况），则将其转换为十进制数值</span><br><span class="line">        如果字符串中包含有效的浮点格式，如&quot;1.1&quot;，则将其转换为对应的浮点数值（同样，也会忽略前导零）；</span><br><span class="line">        如果字符串中包含有效的十六进制格式，例如&quot;0xf&quot;，则将其转换为相同大小的十进制整数值；</span><br><span class="line">        如果字符串是空的（不包含任何字符），则将其转换为 0；</span><br><span class="line">        如果字符串中包含除上述格式之外的字符，则将其转换为 NaN。</span><br><span class="line">        如果是对象，则调用对象的valueOf()方法，然后依照前面的规则转换返回的值。如果转换的结果是NaN则调用对象的toString()方法，然后再次依照前面的规则转换返回的字符串值。</span><br><span class="line">        </span><br><span class="line">    var num1 = Number(&quot;Hello world!&quot;); //NaN</span><br><span class="line">    var num2 = Number(&quot;&quot;); //0</span><br><span class="line">    var num3 = Number(&quot;000011&quot;); //11</span><br><span class="line">    var num4 = Number(true); //1 </span><br><span class="line"></span><br><span class="line">parseInt(数,基数):</span><br><span class="line"></span><br><span class="line">    parseInt()忽略字符串前面的空格，直至找到第一个非空格字符。</span><br><span class="line">    如果第一个字符不是数字字符或者负号,parseInt()就会返回NaN也就是说用 parseInt()转换空字符串会返回NaN（Number()对空字符返回 0）</span><br><span class="line">    如果第一个字符是数字字符，parseInt()会继续解析第二个字符，直到解析完所有后续字符或者遇到了一个非数字字符。</span><br><span class="line">    parseInt()也能够识别出各种整数格式</span><br><span class="line">    </span><br><span class="line">    var num1 = parseInt(&quot;1234blue&quot;); // 1234</span><br><span class="line">    var num2 = parseInt(&quot;&quot;); // NaN</span><br><span class="line">    var num3 = parseInt(&quot;0xA&quot;); // 10（十六进制数）</span><br><span class="line">    var num4 = parseInt(22.5); // 22</span><br><span class="line">    var num5 = parseInt(&quot;070&quot;); // 56（八进制数）</span><br><span class="line">    var num6 = parseInt(&quot;70&quot;); // 70（十进制数）</span><br><span class="line">    var num7 = parseInt(&quot;0xf&quot;); // 15（十六进制数）</span><br><span class="line">    </span><br><span class="line">    进制问题</span><br><span class="line">    es3 &quot;070&quot;被当成八进制字面量 转换后的值是十进制的 56</span><br><span class="line">    es5 parseInt()已经不具有解析八进制值的能力，因此前导的零会</span><br><span class="line">    被认为无效，从而将这个值当成&quot;70&quot;，结果就得到十进制的 70。</span><br><span class="line">    </span><br><span class="line">    parseInt第二个参数：转换时使用的基数（即多少进制）。</span><br><span class="line">    var num1 = parseInt(&quot;10&quot;, 2); //2 （按二进制解析）</span><br><span class="line">    var num2 = parseInt(&quot;10&quot;, 8); //8 （按八进制解析）</span><br><span class="line">    var num3 = parseInt(&quot;10&quot;, 10); //10 （按十进制解析）</span><br><span class="line">    var num4 = parseInt(&quot;10&quot;, 16); //16 （按十六进制解析）</span><br><span class="line"></span><br><span class="line">parseFloat()</span><br></pre></td></tr></table></figure></p>
+<p>与 parseInt()函数类似<br>除了：<br>    第一个小数点有效<br>    始终都会忽略前导的零，只解析十进制值，没有用第二个参数指定基数的用法<br>    如果字符串包含的是一个可解析为整数的数（没有小数点，或者小数点后<br>    都是零），parseFloat()会返回整数。</p>
+<p>var num1 = parseFloat(“1234blue”); //1234 （整数）<br>var num2 = parseFloat(“0xA”); //0<br>var num3 = parseFloat(“22.5”); //22.5<br>var num4 = parseFloat(“22.34.5”); //22.34<br>var num5 = parseFloat(“0908.5”); //908.5<br>var num6 = parseFloat(“3.125e7”); //31250000<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#### 3.4.7、String类型　</span><br><span class="line">String 类型用于表示由零或多个16位 Unicode字符组成的字符序列即字符串</span><br><span class="line">字符串可以由双引号（&quot;）或单引号（&apos;）表示</span><br><span class="line"></span><br><span class="line">- 1、字符字面量</span><br><span class="line">|字 面 量| 含 义|</span><br><span class="line">|---|:---:|</span><br><span class="line">|\n| 换行|</span><br><span class="line">|\t| 制表|</span><br><span class="line">|\b| 空格|</span><br><span class="line">|\r| 回车|</span><br><span class="line">|\f| 进纸|</span><br><span class="line">|\\\ | 斜杠|</span><br><span class="line">|\&apos;| 单引号（&apos;），在用单引号表示的字符串中使用。例如：&apos;He said, \&apos;hey.\&apos;&apos;|</span><br><span class="line">|\&quot;| 双引号（&quot;），在用双引号表示的字符串中使用。例如：&quot;He said, \&quot;hey.\&quot;&quot;|</span><br><span class="line">|\xnn |以十六进制代码nn表示的一个字符（其中n为0～F）。例如，\x41表示&quot;A&quot;|</span><br><span class="line">|\unnnn| 以十六进制代码nnnn表示的一个Unicode字符（其中n为0～F）。例如，\u03a3表示希腊字符Σ|</span><br></pre></td></tr></table></figure></p>
+<p>var text = “This is the letter sigma: \u03a3.”;<br>这个例子中的变量 text 有 28 个字符，其中 6 个字符长的转义序列表示 1 个字符。<br>任何字符串的长度都可以通过访问其 length 属性取得<br>alert(text.length); // 输出 28<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 2、特点</span><br></pre></td></tr></table></figure></p>
+<p>字符串一旦创建，它们的值就不能改变。<br>var lang = “Java”;<br>lang = lang + “Script”;<br>首先创建一个能容纳 10 个字符的新字符串，然后在这个字符串中填充<br>“Java”和”Script”，最后一步是销毁原来的字符串”Java”和字符串”Script”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">- 3、转换为字符串</span><br><span class="line">1、toString() </span><br><span class="line"></span><br><span class="line">        null 和 undefined 值没有这个方法</span><br><span class="line">        默认10进制 参数是基数</span><br><span class="line">        var num = 10;</span><br><span class="line">        alert(num.toString()); // &quot;10&quot;</span><br><span class="line">        alert(num.toString(2)); // &quot;1010&quot;</span><br><span class="line">2、String() </span><br><span class="line"></span><br><span class="line">        如果值有 toString()方法，则调用该方法（没有参数）并返回相应的结果；</span><br><span class="line">        如果值是 null，则返回&quot;null&quot;；</span><br><span class="line">        如果值是 undefined，则返回&quot;undefined&quot;。</span><br><span class="line">        var value1 = 10;</span><br><span class="line">        var value2 = true;</span><br><span class="line">        var value3 = null;</span><br><span class="line">        var value4;</span><br><span class="line">        alert(String(value1)); // &quot;10&quot;</span><br><span class="line">        alert(String(value2)); // &quot;true&quot;</span><br><span class="line">        alert(String(value3)); // &quot;null&quot;</span><br><span class="line">        alert(String(value4)); // &quot;undefined&quot; </span><br><span class="line">#### 3.4.8、Object类型</span><br><span class="line">    var o = new Object(); </span><br><span class="line">    </span><br><span class="line">- 属性方法：</span><br><span class="line"></span><br><span class="line">            constructor：保存着用于创建当前对象的函数。对于前面的例子而言，构造函数（constructor）就是Object()。</span><br><span class="line">            hasOwnProperty(propertyName)：用于检查给定的属性在当前对象实例中（而不是在实例原型中）是否存在。其中，作为参数的属性名必须以字符串形式指定（例o.hasOwnProperty(&quot;name&quot;)）。</span><br><span class="line">            isPrototypeOf(object)：用于检查传入的对象是否是传入对象的原型</span><br><span class="line">            propertyIsEnumerable(propertyName)：用于检查给定的属性是否能够使用 for-in 语句来枚举。作为参数的属性名必须以字符串形式指定。</span><br><span class="line">            toLocaleString()：返回对象的字符串表示，该字符串与执行环境的地区对应。</span><br><span class="line">            toString()：返回对象的字符串表示。</span><br><span class="line">            valueOf()：返回对象的字符串、数值或布尔值表示。通常与 toString()方法的返回值相同。</span><br><span class="line"></span><br><span class="line">### 3.5　操作符　</span><br><span class="line"></span><br><span class="line">#### 3.5.1、一元操作符　</span><br><span class="line">- 1. 递增和递减操作符</span><br></pre></td></tr></table></figure></p>
+<p>执行前置递增和递减操作时，变量的值都是在语句被求值以前改变的。<br>    var num1 = 2;<br>    var num2 = 20;<br>    var num3 = –num1 + num2; // 等于 21<br>    var num4 = num1 + num2; // 等于 21<br>递增和递减操作是在包含它们的语句被求值之后才执行的。<br>    如果递增是这条语句的唯一操作结果和前置无区别：<br>        var age = 29;<br>        age++; //30<br>    当语句中还包含其他操作时，会有明显区别：<br>        var num1 = 2;<br>        var num2 = 20;<br>        var num3 = num1– + num2; // 等于 22<br>        var num4 = num1 + num2; // 等于 21<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">结论：</span><br><span class="line"></span><br><span class="line">    递增和递减操作符规则：</span><br><span class="line">    在应用于一个包含有效数字字符的字符串时，先将其转换为数字值，再执行加减 1 的操作。不包含则将变量的值设置为NaN</span><br><span class="line">    在应用于布尔值 false/true 时，先将其转换为 0/1 再执行加减 1 的操作</span><br><span class="line">    在应用于浮点数值时，执行加减 1 的操作。</span><br><span class="line">    在应用于对象时，先调用对象的valueOf()方法以取得一个可供操作的值。然后对该值应用前述规则.如果结果是NaN，则在调用toString()方法后再应用前述规则。对象变量变成数值变量。</span><br></pre></td></tr></table></figure></p>
+<p>var s1 = “2”;<br>var s2 = “z”;<br>var b = false;<br>var f = 1.1;<br>var o = {<br>    valueOf: function() {<br>        return -1;<br>    }<br>};<br>s1++; // 值变成数值 3<br>s2++; // 值变成 NaN<br>b++; // 值变成数值 1<br>f–; // 值变成 0.10000000000000009（由于浮点舍入错误所致）<br>o–; // 值变成数值-2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#### 3.5.2、位操作符　</span><br><span class="line">- 1、按位非（NOT）（~）反码、操作数的负值减 1。</span><br></pre></td></tr></table></figure>
+<p>var num1 = 25; // 二进制 00000000000000000000000000011001<br>var num2 = ~num1; // 二进制 11111111111111111111111111100110<br>alert(num2); // -26<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 2、按位与（AND）（&amp;）</span><br></pre></td></tr></table></figure></p>
+<p>var result = 25 &amp; 3; //1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 3、按位或（OR）（|）</span><br></pre></td></tr></table></figure></p>
+<p>var result = 25 | 3;//27<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 4、按位异或（XOR）（^）</span><br></pre></td></tr></table></figure></p>
+<p>var result = 25 ^ 3;//26<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 5、左移（&lt;&lt;）不会影响操作数的符号位</span><br></pre></td></tr></table></figure></p>
+<p>var oldValue = 2; // 等于二进制的 10<br>var newValue = oldValue &lt;&lt; 5; // 等于二进制的 1000000，十进制的 64<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- 6、右移（&gt;&gt;）不会影响操作数的符号位</span><br></pre></td></tr></table></figure></p>
+<p>var oldValue = 64; // 等于二进制的 1000000<br>var newValue = oldValue &gt;&gt; 5; // 等于二进制的 10 ，即十进制的 2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-7、无符号右移（&gt;&gt;&gt;）</span><br></pre></td></tr></table></figure></p>
+<p>var oldValue = 64; // 等于二进制的 1000000<br>var newValue = oldValue &gt;&gt;&gt; 5; // 等于二进制的 10 ，即十进制的 2 </p>
+<p>无符号右移操作符会把负数的二进制码当成正数的二进制码。而且，由于负数以其绝对值的二进制补码形式表示<br>var oldValue = -64; // 等于二进制的 11111111111111111111111111000000<br>var newValue = oldValue &gt;&gt;&gt; 5; // 等于十进制的 134217726<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#### 3.5.3、布尔操作符　</span><br><span class="line">- 1、逻辑非（！）</span><br><span class="line"></span><br><span class="line">    空字符串，0，null，NaN，undefined，返回 true。</span><br><span class="line">对象，非空字符串，非 0 数值（包括 Infinity），返回 false；</span><br><span class="line">var a = null;console.log(!a)//true</span><br><span class="line"></span><br><span class="line">同时使用两个逻辑非操作符相当于使用Boolean()</span><br><span class="line">alert(!!0); //false </span><br><span class="line">-2、逻辑与（&amp;&amp;）</span><br><span class="line">   </span><br><span class="line">        逻辑与操作属于短路操作，即如果第一个操作数能够决定结果，那么就不会再对第二个操作数求值。</span><br><span class="line">        对于逻辑与操作而言，如果第一个操作数是false，则无论第二个操作数是什么值，结果都不再可能是true 了。</span><br><span class="line">        如果第一个操作数是对象，则返回第二个操作数；</span><br><span class="line">        如果第二个操作数是对象，则只有在第一个操作数的求值结果为 true 的情况下才会返回该对象；</span><br><span class="line">        如果两个操作数都是对象，则返回第二个操作数；</span><br><span class="line">        如果有一个操作数是 null，则返回 null；</span><br><span class="line">        如果有一个操作数是 NaN，则返回 NaN；</span><br><span class="line">        如果有一个操作数是 undefined，则返回 undefined。</span><br></pre></td></tr></table></figure></p>
+<p>var found = true;<br>var result = (found &amp;&amp; someUndefinedVariable); // 这里会发生错误someUndefinedVariable is not defined<br>alert(result); // 这一行不会执行</p>
+<p>var found = false;<br>var result = (found &amp;&amp; someUndefinedVariable); // 不会发生错误<br>alert(result); // 会执行（”false”）<br><code>`</code></p>
+<p>-3、 逻辑或</p>
+<pre><code>如果第一个操作数是对象，则返回第一个操作数；
+如果第一个操作数的求值结果为 false，则返回第二个操作数；
+如果两个操作数都是对象，则返回第一个操作数；
+如果两个操作数都是 null，则返回 null；
+如果两个操作数都是 NaN，则返回 NaN；
+如果两个操作数都是 undefined，则返回 undefined。
+</code></pre><h4 id="3-5-4、乘性操作符"><a href="#3-5-4、乘性操作符" class="headerlink" title="3.5.4、乘性操作符　"></a>3.5.4、乘性操作符　</h4><h4 id="3-5-5、加性操作符"><a href="#3-5-5、加性操作符" class="headerlink" title="3.5.5、加性操作符　"></a>3.5.5、加性操作符　</h4><h4 id="3-5-6、关系操作符"><a href="#3-5-6、关系操作符" class="headerlink" title="3.5.6、关系操作符　"></a>3.5.6、关系操作符　</h4><pre><code>如果两个操作数都是数值，则执行数值比较。
+    如果两个操作数都是字符串，则比较两个字符串对应的字符编码值。大写字母小于小写字母
+    如果一个操作数是数值，则将另一个操作数转换为一个数值，然后执行数值比较。
+    如果一个操作数是对象，则调用这个对象的valueOf()方法，用得到的结果按照前面的规则执行比较。如果对象没有 valueOf()方法，则调用 toString()方法，并用得到的结果根据前面的规则执行比较。
+    如果一个操作数是布尔值，则先将其转换为数值，然后再执行比较。
+    NaN和任何一个数比较都是false
+    var result = &quot;a&quot; &lt; 3; // false，因为&quot;a&quot;被转换成了 NaN
+</code></pre><h4 id="3-5-7、相等操作符"><a href="#3-5-7、相等操作符" class="headerlink" title="3.5.7、相等操作符　"></a>3.5.7、相等操作符　</h4><pre><code>== 比较之前 转换操作数
+=== 比较之前 不转换操作数
+var result1 = (&quot;55&quot; == 55); //true，因为转换后相等
+var result2 = (&quot;55&quot; === 55); //false，因为不同的数据类型不相等
+null == undefined 会返回 true，因为它们是类似的值;
+但 null === undefined 会返回 false，因为它们是不同类型的值。
+</code></pre><h4 id="3-5-8、条件操作符"><a href="#3-5-8、条件操作符" class="headerlink" title="3.5.8、条件操作符　"></a>3.5.8、条件操作符　</h4><pre><code>var max = (num1 &gt; num2) ? num1 : num2;
+如果 num1 大于 num2(关 系表达式返回 true)，则将 num1 的值赋给 max;如果 num1 小于或等于 num2(关系表达式返回 false)， 6 则将 num2 的值赋给 max。
+</code></pre><h4 id="3-5-9、赋值操作符"><a href="#3-5-9、赋值操作符" class="headerlink" title="3.5.9、赋值操作符"></a>3.5.9、赋值操作符</h4><pre><code>每个主要算术操作符(以及个别的其他操作符)都有对应的复合赋值操作符。这些操作符如下所示:
+乘/赋值(*=);
+除/赋值(/=);
+模/赋值(%=);
+加/赋值(+=);
+减/赋值(=);
+左移/赋值(&lt;&lt;=);
+有符号右移/赋值(&gt;&gt;=);
+无符号右移/赋值(&gt;&gt;&gt;=)。
+</code></pre><h4 id="3-5-10、逗号操作符"><a href="#3-5-10、逗号操作符" class="headerlink" title="3.5.10、逗号操作符"></a>3.5.10、逗号操作符</h4><pre><code>var num1=1, num2=2, num3=3;
+var num = (5, 1, 4, 8, 0); // num的值为0
+</code></pre><p>###3.6　语句</p>
+<h4 id="3-6-1-if语句"><a href="#3-6-1-if语句" class="headerlink" title="3.6.1　if语句　"></a>3.6.1　if语句　</h4><h4 id="3-6-2-do-while语句"><a href="#3-6-2-do-while语句" class="headerlink" title="3.6.2　do-while语句　"></a>3.6.2　do-while语句　</h4><pre><code>do-while 语句是一种后测试循环语句，即只有在循环体中的代码执行之后，才会测试出口条件。
+do {
+    statement
+} while (expression);
+</code></pre><h4 id="3-6-3-while语句"><a href="#3-6-3-while语句" class="headerlink" title="3.6.3　while语句　"></a>3.6.3　while语句　</h4><pre><code>while 语句属于前测试循环语句，也就是说，在循环体内的代码被执行之前，就会对出口条件求值 
+while(expression) {
+    statement
+}
+</code></pre><h4 id="3-6-4-for语句"><a href="#3-6-4-for语句" class="headerlink" title="3.6.4　for语句　"></a>3.6.4　for语句　</h4><pre><code>for 语句也是一种前测试循环语句
+for(;;){
+//无限循环
+}
+</code></pre><h4 id="3-6-5-for-in语句"><a href="#3-6-5-for-in语句" class="headerlink" title="3.6.5　for-in语句　"></a>3.6.5　for-in语句　</h4><pre><code>for-in 语句是一种精准的迭代语句，可以用来枚举对象的属性
+</code></pre><h4 id="3-6-6-label语句"><a href="#3-6-6-label语句" class="headerlink" title="3.6.6　label语句　"></a>3.6.6　label语句　</h4><pre><code>使用 label 语句可以在代码中添加标签，以便将来使用。
+start: for (var i=0; i &lt; count; i++) {
+    alert(i);
+}
+break start;
+</code></pre><h4 id="3-6-7-break和continue语句"><a href="#3-6-7-break和continue语句" class="headerlink" title="3.6.7　break和continue语句　"></a>3.6.7　break和continue语句　</h4><pre><code>break 语句会立即退出循环，强制继续执行循环后面的语句。
+continue 语句虽然也是立即退出循环，退出循环后会从循环的顶部继续执行。
+</code></pre><h4 id="3-6-8-with语句"><a href="#3-6-8-with语句" class="headerlink" title="3.6.8　with语句　"></a>3.6.8　with语句　</h4><h4 id="3-6-9-switch语句"><a href="#3-6-9-switch语句" class="headerlink" title="3.6.9　switch语句　"></a>3.6.9　switch语句　</h4><p>3.7　函数　<br>  3.7.1　理解参数　<br>  3.7.2　没有重载　<br>3.8　小结　</p>
+<h3 id="第4章-变量、作用域和内存问题"><a href="#第4章-变量、作用域和内存问题" class="headerlink" title="第4章　变量、作用域和内存问题　"></a>第4章　变量、作用域和内存问题　</h3><p>4.1　基本类型和引用类型的值　<br>  4.1.1　动态的属性　<br>  4.1.2　复制变量值　<br>  4.1.3　传递参数　<br>  4.1.4　检测类型　<br>4.2　执行环境及作用域　<br>  4.2.1　延长作用域链　<br>  4.2.2　没有块级作用域　<br>4.3　垃圾收集　<br>  4.3.1　标记清除　<br>  4.3.2　引用计数　<br>  4.3.3　性能问题　<br>  4.3.4　管理内存　<br>4.4　小结　</p>
+<h3 id="第5章-引用类型"><a href="#第5章-引用类型" class="headerlink" title="第5章　引用类型　"></a>第5章　引用类型　</h3><p>5.1　Object类型　<br>5.2　Array类型　<br>  5.2.1　检测数组　<br>  5.2.2　转换方法　<br>  5.2.3　栈方法　<br>  5.2.4　队列方法　<br>  5.2.5　重排序方法　<br>  5.2.6　操作方法　<br>  5.2.7　位置方法　<br>  5.2.8　迭代方法　<br>  5.2.9　缩小方法　<br>5.3　Date类型　<br>  5.3.1　继承的方法　　<br>  5.3.2　日期格式化方法　　<br>  5.3.3　日期/时间组件方法　　<br>5.4　RegExp类型　　<br>  5.4.1　RegExp实例属性　　<br>  5.4.2　RegExp实例方法　　<br>  5.4.3　RegExp构造函数属性　　<br>  5.4.4　模式的局限性　　<br>5.5　Function类型　　<br>  5.5.1　没有重载（深入理解）　　<br>  5.5.2　函数声明与函数表达式　　<br>  5.5.3　作为值的函数　　<br>  5.5.4　函数内部属性　　<br>  5.5.5　函数属性和方法　　<br>5.6　基本包装类型　　<br>  5.6.1　Boolean类型　　<br>  5.6.2　Number类型　　<br>  5.6.3　String类型　　<br>5.7　单体内置对象　　<br>  5.7.1　Global对象　　<br>  5.7.2　Math对象　　<br>5.8　小结　　</p>
+<h3 id="第6章-面向对象的程序设计"><a href="#第6章-面向对象的程序设计" class="headerlink" title="第6章　面向对象的程序设计　　"></a>第6章　面向对象的程序设计　　</h3><p>6.1　理解对象　　<br>  6.1.1　属性类型　　<br>  6.1.2　定义多个属性　　<br>  6.1.3　读取属性的特性　　<br>6.2　创建对象　　<br>  6.2.1　工厂模式　　<br>  6.2.2　构造函数模式　　<br>  6.2.3　原型模式　　<br>  6.2.4　组合使用构造函数模式和原型模式　　<br>  6.2.5　动态原型模式　　<br>  6.2.6　寄生构造函数模式　　<br>  6.2.7　稳妥构造函数模式　　<br>6.3　继承　　<br>  6.3.1　原型链　　<br>  6.3.2　借用构造函数　　<br>  6.3.3　组合继承　　<br>  6.3.4　原型式继承　　<br>  6.3.5　寄生式继承　　<br>  6.3.6　寄生组合式继承　　<br>6.4　小结　　</p>
+<h3 id="第7章-函数表达式"><a href="#第7章-函数表达式" class="headerlink" title="第7章　函数表达式　　"></a>第7章　函数表达式　　</h3><p>7.1　递归　　<br>7.2　闭包　　<br>  7.2.1　闭包与变量　　<br>  7.2.2　关于this对象　　<br>  7.2.3　内存泄漏　　<br>  7.3　模仿块级作用域　　<br>7.4　私有变量　　<br>  7.4.1　静态私有变量　　<br>  7.4.2　模块模式　　<br>  7.4.3　增强的模块模式　　<br>7.5　小结　　</p>
+<h3 id="第8章-BOM"><a href="#第8章-BOM" class="headerlink" title="第8章　BOM　　"></a>第8章　BOM　　</h3><p>8.1　window对象　　<br>  8.1.1　全局作用域　　<br>  8.1.2　窗口关系及框架　　<br>  8.1.3　窗口位置　　<br>  8.1.4　窗口大小　　<br>  8.1.5　导航和打开窗口　　<br>  8.1.6　间歇调用和超时调用　　<br>  8.1.7　系统对话框　　<br>8.2　location对象　　<br>  8.2.1　查询字符串参数　　<br>  8.2.2　位置操作　　<br>8.3　navigator对象　　<br>  8.3.1　检测插件　　<br>  8.3.2　注册处理程序　　<br>8.4　screen对象　　<br>8.5　history对象　　<br>8.6　小结　　</p>
+<h3 id="第9章-客户端检测"><a href="#第9章-客户端检测" class="headerlink" title="第9章　客户端检测　　"></a>第9章　客户端检测　　</h3><p>9.1　能力检测　　<br>  9.1.1　更可靠的能力检测　　<br>  9.1.2　能力检测，不是浏览器检测　　<br>9.2　怪癖检测　　<br>9.3　用户代理检测　　<br>  9.3.1　用户代理字符串的历史　　<br>  9.3.2　用户代理字符串检测技术　　<br>  9.3.3　完整的代码　　<br>  9.3.4　使用方法　　<br>9.4　小结　　</p>
+<h3 id="第10章-DOM"><a href="#第10章-DOM" class="headerlink" title="第10章　DOM　　"></a>第10章　DOM　　</h3><p>10.1　节点层次　　<br>  10.1.1　Node类型　　<br>  10.1.2　Document类型　　<br>  10.1.3　Element类型　　<br>  10.1.4　Text类型　　<br>  10.1.5　Comment类型　　<br>  10.1.6　CDATASection类型　　<br>  10.1.7　DocumentType类型　　<br>  10.1.8　DocumentFragment类型　　<br>  10.1.9　Attr类型　　<br>10.2　DOM操作技术　　<br>  10.2.1　动态脚本　　<br>  10.2.2　动态样式　　<br>  10.2.3　操作表格　　<br>  10.2.4　使用NodeList　　<br>10.3　小结　　</p>
+<h3 id="第11章-DOM扩展"><a href="#第11章-DOM扩展" class="headerlink" title="第11章　DOM扩展　　"></a>第11章　DOM扩展　　</h3><p>11.1　选择符API　　<br>  11.1.1　querySelector()方法　　<br>  11.1.2　querySelectorAll()方法　　<br>  11.1.3　matchesSelector()方法　　<br>11.2　元素遍历　　<br>11.3　HTML5　　<br>  11.3.1　与类相关的扩充　　<br>  11.3.2　焦点管理　　<br>  11.3.3　HTMLDocument的变化　　<br>  11.3.4　字符集属性　　<br>  11.3.5　自定义数据属性　　<br>  11.3.6　插入标记　　<br>  11.3.7　scrollIntoView()方法　　<br>11.4　专有扩展　　<br>  11.4.1　文档模式　　<br>  11.4.2　children属性　　<br>  11.4.3　contains()方法　　<br>  11.4.4　插入文本　　<br>  11.4.5　滚动　　<br>11.5　小结　　</p>
+<h3 id="第12章-DOM2和DOM3"><a href="#第12章-DOM2和DOM3" class="headerlink" title="第12章　DOM2和DOM3　　"></a>第12章　DOM2和DOM3　　</h3><p>12.1　DOM变化　　<br>  12.1.1　针对XML命名空间的变化　　<br>  12.1.2　其他方面的变化　　<br>12.2　样式　　<br>  12.2.1　访问元素的样式　　<br>  12.2.2　操作样式表　　<br>  12.2.3　元素大小　　<br>12.3　遍历　　<br>  12.3.1　NodeIterator　　<br>  12.3.2　TreeWalker　　<br>12.4　范围　　<br>  12.4.1　DOM中的范围　　<br>  12.4.2　IE8及更早版本中的范围　　<br>12.5　小结　　</p>
+<h3 id="第13章-事件"><a href="#第13章-事件" class="headerlink" title="第13章　事件　　"></a>第13章　事件　　</h3><p>13.1　事件流　　<br>  13.1.1　事件冒泡　　<br>  13.1.2　事件捕获　　<br>  13.1.3　DOM事件流　　<br>13.2　事件处理程序　　<br>  13.2.1　HTML事件处理程序　　<br>  13.2.2　DOM0级事件处理程序　　<br>  13.2.3　DOM2级事件处理程序　　<br>  13.2.4　IE事件处理程序　　<br>  13.2.5　跨浏览器的事件处理程序　　<br>13.3　事件对象　　<br>  13.3.1　DOM中的事件对象　　<br>  13.3.2　IE中的事件对象　　<br>  13.3.3　跨浏览器的事件对象　　<br>13.4　事件类型　　<br>  13.4.1　UI事件　　<br>  13.4.2　焦点事件　　<br>  13.4.3　鼠标与滚轮事件　　<br>  13.4.4　键盘与文本事件　　<br>  13.4.5　复合事件　　<br>  13.4.6　变动事件　　<br>  13.4.7　HTML5事件　　<br>  13.4.8　设备事件　　<br>  13.4.9　触摸与手势事件　　<br>13.5　内存和性能　　<br>  13.5.1　事件委托　　<br>  13.5.2　移除事件处理程序　　<br>13.6　模拟事件　　<br>  13.6.1　DOM中的事件模拟　　<br>  13.6.2　IE中的事件模拟　　<br>13.7　小结　　</p>
+<h3 id="第14章-表单脚本"><a href="#第14章-表单脚本" class="headerlink" title="第14章　表单脚本　　"></a>第14章　表单脚本　　</h3><p>14.1　表单的基础知识　　<br>  14.1.1　提交表单　　<br>  14.1.2　重置表单　　<br>  14.1.3　表单字段　　<br>14.2　文本框脚本　　<br>  14.2.1　选择文本　　<br>  14.2.2　过滤输入　　<br>  14.2.3　自动切换焦点　　<br>  14.2.4　HTML5约束验证API　　<br>14.3　选择框脚本　　<br>  14.3.1　选择选项　　<br>  14.3.2　添加选项　　<br>  14.3.3　移除选项　　<br>  14.3.4　移动和重排选项　　<br>14.4　表单序列化　　<br>14.5　富文本编辑　　<br>  14.5.1　使用contenteditable属性　　<br>  14.5.2　操作富文本　　<br>  14.5.3　富文本选区　　<br>  14.5.4　表单与富文本　　<br>14.6　小结　　</p>
+<h3 id="第15章-使用Canvas绘图"><a href="#第15章-使用Canvas绘图" class="headerlink" title="第15章　使用Canvas绘图　　"></a>第15章　使用Canvas绘图　　</h3><p>15.1　基本用法　　<br>15.2　2D上下文　　<br>  15.2.1　填充和描边　　<br>  15.2.2　绘制矩形　　<br>  15.2.3　绘制路径　　<br>  15.2.4　绘制文本　　<br>  15.2.5　变换　　<br>  15.2.6　绘制图像　　<br>  15.2.7　阴影　　<br>  15.2.8　渐变　　<br>  15.2.9　模式　　<br>  15.2.10　使用图像数据　　<br>  15.2.11　合成　　<br>15.3　WebGL　　<br>  15.3.1　类型化数组　　<br>  15.3.2　WebGL上下文　　<br>  15.3.3　支持　　<br>15.4　小结　　</p>
+<h3 id="第16章-HTML5脚本编程"><a href="#第16章-HTML5脚本编程" class="headerlink" title="第16章　HTML5脚本编程　　"></a>第16章　HTML5脚本编程　　</h3><p>16.1　跨文档消息传递　　<br>16.2　原生拖放　　<br>  16.2.1　拖放事件　　<br>  16.2.2　自定义放置目标　　<br>  16.2.3　dataTransfer对象　　<br>  16.2.4　dropEffect与effectAllowed　　<br>  16.2.5　可拖动　　<br>  16.2.6　其他成员　　<br>16.3　媒体元素　　<br>  16.3.1　属性　　<br>  16.3.2　事件　　<br>  16.3.3　自定义媒体播放器　　<br>  16.3.4　检测编解码器的支持情况　　<br>  16.3.5　Audio类型　　<br>16.4　历史状态管理　　<br>16.5　小结　　</p>
+<h3 id="第17章-错误处理与调试"><a href="#第17章-错误处理与调试" class="headerlink" title="第17章　错误处理与调试　　"></a>第17章　错误处理与调试　　</h3><p>17.1　浏览器报告的错误　　<br>  17.1.1　IE　　<br>  17.1.2　Firefox　　<br>  17.1.3　Safari　　<br>  17.1.4　Opera　　<br>  17.1.5　Chrome　　<br>17.2　错误处理　　<br>  17.2.1　try-catch语句　　<br>  17.2.2　抛出错误　　<br>  17.2.3　错误（error）事件　　<br>  17.2.4　处理错误的策略　　<br>  17.2.5　常见的错误类型　　<br>  17.2.6　区分致命错误和非致命错误　　<br>  17.2.7　把错误记录到服务器　　<br>17.3　调试技术　　<br>  17.3.1　将消息记录到控制台　　<br>  17.3.2　将消息记录到当前页面　　<br>  17.3.3　抛出错误　　<br>17.4　常见的IE错误　　<br>  17.4.1　操作终止　　<br>  17.4.2　无效字符　　<br>  17.4.3　未找到成员　　<br>  17.4.4　未知运行时错误　　<br>  17.4.5　语法错误　　<br>  17.4.6　系统无法找到指定资源　　<br>17.5　小结　　</p>
+<h3 id="第18章-JavaScript与XML"><a href="#第18章-JavaScript与XML" class="headerlink" title="第18章　JavaScript与XML　　"></a>第18章　JavaScript与XML　　</h3><p>18.1　浏览器对XML DOM的支持　　<br>  18.1.1　DOM2级核心　　<br>  18.1.2　DOMParser类型　　<br>  18.1.3　XMLSerializer类型　　<br>  18.1.4　IE8及之前版本中的XML　　<br>  18.1.5　跨浏览器处理XML　　<br>18.2　浏览器对XPath的支持　　<br>  18.2.1　DOM3级XPath　　<br>  18.2.2　IE中的XPath　　<br>  18.2.3　跨浏览器使用XPath　　<br>18.3　浏览器对XSLT的支持　　<br>  18.3.1　IE中的XSLT　　<br>  18.3.2　XSLTProcessor类型　　<br>  18.3.3　跨浏览器使用XSLT　　<br>18.4　小结　　</p>
+<h3 id="第19章-E4X"><a href="#第19章-E4X" class="headerlink" title="第19章　E4X　　"></a>第19章　E4X　　</h3><p>19.1　E4X的类型　　<br>  19.1.1　XML类型　　<br>  19.1.2　XMLList类型　　<br>  19.1.3　Namespace类型　　<br>  19.1.4　QName类型　　<br>19.2　一般用法　　<br>  19.2.1　访问特性　　<br>  19.2.2　其他节点类型　　<br>  19.2.3　查询　　<br>  19.2.4　构建和操作XML　　<br>  19.2.5　解析和序列化　　<br>  19.2.6　命名空间　　<br>19.3　其他变化　　<br>19.4　全面启用E4X　　<br>19.5　小结　　</p>
+<h3 id="第20章-JSON"><a href="#第20章-JSON" class="headerlink" title="第20章　JSON　　"></a>第20章　JSON　　</h3><p>20.1　语法　　<br>  20.1.1　简单值　　<br>  20.1.2　对象　　<br>  20.1.3　数组　　<br>20.2　解析与序列化　　<br>  20.2.1　JSON对象　　<br>  20.2.2　序列化选项　　<br>  20.2.3　解析选项　　<br>20.3　小结　　</p>
+<h3 id="第21章-Ajax与Comet"><a href="#第21章-Ajax与Comet" class="headerlink" title="第21章　Ajax与Comet　　"></a>第21章　Ajax与Comet　　</h3><p>21.1　XMLHttpRequest对象　　<br>  21.1.1　XHR的用法　　<br>  21.1.2　HTTP头部信息　　<br>  21.1.3　GET请求　　<br>  21.1.4　POST请求　　<br>21.2　XMLHttpRequest 2级　　<br>  21.2.1　FormData　　<br>  21.2.2　超时设定　　<br>  21.2.3　overrideMimeType()方法　　<br>21.3　进度事件　　<br>  21.3.1　load事件　　<br>  21.3.2　progress事件　　<br>21.4　跨源资源共享　　<br>  21.4.1　IE对CORS的实现　　<br>  21.4.2　其他浏览器对CORS的实现　　<br>  21.4.3　Preflighted Reqeusts　　<br>  21.4.4　带凭据的请求　　<br>  21.4.5　跨浏览器的CORS　　<br>21.5　其他跨域技术　　<br>  21.5.1　图像Ping　　<br>  21.5.2　JSONP　　<br>  21.5.3　Comet　　<br>  21.5.4　服务器发送事件　　<br>  21.5.5　Web Sockets　　<br>  21.5.6　SSE与Web Sockets　　<br>21.6　安全　　<br>21.7　小结　　</p>
+<h3 id="第22章-高级技巧"><a href="#第22章-高级技巧" class="headerlink" title="第22章　高级技巧　　"></a>第22章　高级技巧　　</h3><p>22.1　高级函数　　<br>  22.1.1　安全的类型检测　　<br>  22.1.2　作用域安全的构造函数　　<br>  22.1.3　惰性载入函数　　<br>  22.1.4　函数绑定　　<br>  22.1.5　函数柯里化　　<br>22.2　防篡改对象　　<br>  22.2.1　不可扩展对象　　<br>  22.2.2　密封的对象　　<br>  22.2.3　冻结的对象　　<br>22.3　高级定时器　　<br>  22.3.1　重复的定时器　　<br>  22.3.2　Yielding Processes　　<br>  22.3.3　函数节流　　<br>22.4　自定义事件　　<br>22.5　拖放　　<br>  22.5.1　修缮拖动功能　　<br>  22.5.2　添加自定义事件　　<br>22.6　小结　　</p>
+<h3 id="第23章-离线应用与客户端存储"><a href="#第23章-离线应用与客户端存储" class="headerlink" title="第23章　离线应用与客户端存储　　"></a>第23章　离线应用与客户端存储　　</h3><p>23.1　离线检测　　<br>23.2　应用缓存　　<br>23.3　数据存储　　<br>  23.3.1　Cookie　　<br>  23.3.2　IE用户数据　　<br>  23.3.3　Web存储机制　　<br>  23.3.4　IndexedDB　　<br>23.4　小结　　</p>
+<h3 id="第24章-最佳实践"><a href="#第24章-最佳实践" class="headerlink" title="第24章　最佳实践　　"></a>第24章　最佳实践　　</h3><p>24.1　可维护性　　<br>  24.1.1　什么是可维护的代码　　<br>  24.1.2　代码约定　　<br>  24.1.3　松散耦合　　<br>  24.1.4　编程实践　　<br>24.2　性能　　<br>  24.2.1　注意作用域　　<br>  24.2.2　选择正确方法　　<br>  24.2.3　最小化语句数　　<br>  24.2.4　优化DOM交互　　<br>24.3　部署　　<br>  24.3.1　构建过程　　<br>  24.3.2　验证　　<br>  24.3.3　压缩　　<br>24.4　小结　　</p>
+<h3 id="第25章-新兴的API"><a href="#第25章-新兴的API" class="headerlink" title="第25章　新兴的API　　"></a>第25章　新兴的API　　</h3><p>25.1　requestAnimationFrame()　　<br>  25.1.1　早期动画循环　　<br>  25.1.2　循环间隔的问题　　<br>  25.1.3　mozRequestAnimation-Frame　　<br>  25.1.4　webkitRequestAnima-tionFrame与msRequest-AnimationFrame　　<br>25.2　Page Visibility API　　<br>25.3　Geolocation API　　<br>25.4　File API　　<br>  25.4.1　FileReader类型　　<br>  25.4.2　读取部分内容　　<br>  25.4.3　对象URL　　<br>  25.4.4　读取拖放的文件　　<br>  25.4.5　使用XHR上传文件　　<br>25.5　Web计时　　<br>25.6　Web Workers　　<br>  25.6.1　使用Worker　　<br>  25.6.2　Worker全局作用域　　<br>  25.6.3　包含其他脚本　　<br>  25.6.4　Web Workers的未来　　<br>25.7　小结　　</p>
+<h3 id="附录A-ECMAScript-Harmony"><a href="#附录A-ECMAScript-Harmony" class="headerlink" title="附录A　ECMAScript Harmony　　"></a>附录A　ECMAScript Harmony　　</h3><h3 id="附录B-严格模式"><a href="#附录B-严格模式" class="headerlink" title="附录B　严格模式　　"></a>附录B　严格模式　　</h3><h3 id="附录C-JavaScript库"><a href="#附录C-JavaScript库" class="headerlink" title="附录C　JavaScript库　　"></a>附录C　JavaScript库　　</h3><h3 id="附录D-JavaScript工具-0"><a href="#附录D-JavaScript工具-0" class="headerlink" title="附录D　JavaScript工具　　## ### 0"></a>附录D　JavaScript工具　　## ### 0</h3><h3 id="1、ECMAScript"><a href="#1、ECMAScript" class="headerlink" title="1、ECMAScript"></a>1、ECMAScript</h3><h3 id="2、let-和-const"><a href="#2、let-和-const" class="headerlink" title="2、let 和 const"></a>2、let 和 const</h3><h3 id="3、变量的解"><a href="#3、变量的解" class="headerlink" title="3、变量的解"></a>3、变量的解</h3><h3 id="4、字符串"><a href="#4、字符串" class="headerlink" title="4、字符串"></a>4、字符串</h3><h3 id="5、正则"><a href="#5、正则" class="headerlink" title="5、正则"></a>5、正则</h3><h3 id="6、数值"><a href="#6、数值" class="headerlink" title="6、数值"></a>6、数值</h3><h3 id="7、函数"><a href="#7、函数" class="headerlink" title="7、函数"></a>7、函数</h3><h3 id="8、数组"><a href="#8、数组" class="headerlink" title="8、数组"></a>8、数组</h3><h3 id="9、对象"><a href="#9、对象" class="headerlink" title="9、对象"></a>9、对象</h3><h3 id="10、Sym"><a href="#10、Sym" class="headerlink" title="10、Sym"></a>10、Sym</h3><h3 id="11、Set-和-Map-数"><a href="#11、Set-和-Map-数" class="headerlink" title="11、Set 和 Map 数"></a>11、Set 和 Map 数</h3><h3 id="12、Pr"><a href="#12、Pr" class="headerlink" title="12、Pr"></a>12、Pr</h3><h3 id="13、Refl"><a href="#13、Refl" class="headerlink" title="13、Refl"></a>13、Refl</h3><h3 id="14、Promise"><a href="#14、Promise" class="headerlink" title="14、Promise"></a>14、Promise</h3><h3 id="15、Iterator-和-for…of"><a href="#15、Iterator-和-for…of" class="headerlink" title="15、Iterator 和 for…of"></a>15、Iterator 和 for…of</h3><h3 id="16、Generator-函数"><a href="#16、Generator-函数" class="headerlink" title="16、Generator 函数"></a>16、Generator 函数</h3><h3 id="17、Generator-函数的异"><a href="#17、Generator-函数的异" class="headerlink" title="17、Generator 函数的异"></a>17、Generator 函数的异</h3><h3 id="18、async"><a href="#18、async" class="headerlink" title="18、async"></a>18、async</h3><h3 id="19、Class-的基"><a href="#19、Class-的基" class="headerlink" title="19、Class 的基"></a>19、Class 的基</h3><h3 id="20、Class"><a href="#20、Class" class="headerlink" title="20、Class"></a>20、Class</h3><h3 id="21、Decora"><a href="#21、Decora" class="headerlink" title="21、Decora"></a>21、Decora</h3><h3 id="22、Module"><a href="#22、Module" class="headerlink" title="22、Module"></a>22、Module</h3><h3 id="23、Module-的加"><a href="#23、Module-的加" class="headerlink" title="23、Module 的加"></a>23、Module 的加</h3><h3 id="24、编"><a href="#24、编" class="headerlink" title="24、编"></a>24、编</h3><h3 id="25、读"><a href="#25、读" class="headerlink" title="25、读"></a>25、读</h3><h3 id="26、ArrayBuf"><a href="#26、ArrayBuf" class="headerlink" title="26、ArrayBuf"></a>26、ArrayBuf</h3><h3 id="27、参"><a href="#27、参" class="headerlink" title="27、参"></a>27、参</h3>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/入门/" rel="tag"># 入门</a>
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/17/regx入门/" rel="next" title="regx入门">
+                <i class="fa fa-chevron-left"></i> regx入门
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/28/vue入门/" rel="prev" title="vue入门">
+                vue入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="Carry Sun">
+            
+              <p class="site-author-name" itemprop="name">Carry Sun</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-JavaScript简介"><span class="nav-number">1.</span> <span class="nav-text">第1章　JavaScript简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、核心（ECMAScript）提供核心语言功能；"><span class="nav-number">1.1.</span> <span class="nav-text">1、核心（ECMAScript）提供核心语言功能；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、文档对象模型（DOM）提供访问和操作网页内容的方法和接口；"><span class="nav-number">1.2.</span> <span class="nav-text">2、文档对象模型（DOM）提供访问和操作网页内容的方法和接口；</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、浏览器对象模型（BOM）提供与浏览器交互的方法和接口。"><span class="nav-number">1.3.</span> <span class="nav-text">3、浏览器对象模型（BOM）提供与浏览器交互的方法和接口。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-在HTML中使用JavaScript"><span class="nav-number">2.</span> <span class="nav-text">第2章　在HTML中使用JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1、script"><span class="nav-number">2.1.</span> <span class="nav-text">2.1、script</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-1、常识"><span class="nav-number">2.1.1.</span> <span class="nav-text">2.1.1、常识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-2、属性"><span class="nav-number">2.1.2.</span> <span class="nav-text">2.1.2、属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-基本概念"><span class="nav-number">3.</span> <span class="nav-text">第3章　基本概念　</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1、语法"><span class="nav-number">3.1.</span> <span class="nav-text">3.1、语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#区分大小写"><span class="nav-number">3.1.1.</span> <span class="nav-text">区分大小写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#标识符"><span class="nav-number">3.1.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注释"><span class="nav-number">3.1.3.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#严格模式-“use-strict”"><span class="nav-number">3.1.4.</span> <span class="nav-text">严格模式 “use strict”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#语句"><span class="nav-number">3.1.5.</span> <span class="nav-text">语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2、关键字和保留字"><span class="nav-number">3.2.</span> <span class="nav-text">3.2、关键字和保留字　</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#关键字"><span class="nav-number">3.2.1.</span> <span class="nav-text">关键字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#保留字"><span class="nav-number">3.2.2.</span> <span class="nav-text">保留字</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-1、typeof操作符"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.4.1、typeof操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-4-2、Undefined类型"><span class="nav-number">3.2.4.</span> <span class="nav-text">3.4.2、Undefined类型　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-4、乘性操作符"><span class="nav-number">3.2.5.</span> <span class="nav-text">3.5.4、乘性操作符　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-5、加性操作符"><span class="nav-number">3.2.6.</span> <span class="nav-text">3.5.5、加性操作符　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-6、关系操作符"><span class="nav-number">3.2.7.</span> <span class="nav-text">3.5.6、关系操作符　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-7、相等操作符"><span class="nav-number">3.2.8.</span> <span class="nav-text">3.5.7、相等操作符　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-8、条件操作符"><span class="nav-number">3.2.9.</span> <span class="nav-text">3.5.8、条件操作符　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-9、赋值操作符"><span class="nav-number">3.2.10.</span> <span class="nav-text">3.5.9、赋值操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-5-10、逗号操作符"><span class="nav-number">3.2.11.</span> <span class="nav-text">3.5.10、逗号操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-1-if语句"><span class="nav-number">3.2.12.</span> <span class="nav-text">3.6.1　if语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-2-do-while语句"><span class="nav-number">3.2.13.</span> <span class="nav-text">3.6.2　do-while语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-3-while语句"><span class="nav-number">3.2.14.</span> <span class="nav-text">3.6.3　while语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-4-for语句"><span class="nav-number">3.2.15.</span> <span class="nav-text">3.6.4　for语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-5-for-in语句"><span class="nav-number">3.2.16.</span> <span class="nav-text">3.6.5　for-in语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-6-label语句"><span class="nav-number">3.2.17.</span> <span class="nav-text">3.6.6　label语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-7-break和continue语句"><span class="nav-number">3.2.18.</span> <span class="nav-text">3.6.7　break和continue语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-8-with语句"><span class="nav-number">3.2.19.</span> <span class="nav-text">3.6.8　with语句　</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-6-9-switch语句"><span class="nav-number">3.2.20.</span> <span class="nav-text">3.6.9　switch语句　</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第4章-变量、作用域和内存问题"><span class="nav-number">3.3.</span> <span class="nav-text">第4章　变量、作用域和内存问题　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第5章-引用类型"><span class="nav-number">3.4.</span> <span class="nav-text">第5章　引用类型　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第6章-面向对象的程序设计"><span class="nav-number">3.5.</span> <span class="nav-text">第6章　面向对象的程序设计　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第7章-函数表达式"><span class="nav-number">3.6.</span> <span class="nav-text">第7章　函数表达式　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第8章-BOM"><span class="nav-number">3.7.</span> <span class="nav-text">第8章　BOM　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第9章-客户端检测"><span class="nav-number">3.8.</span> <span class="nav-text">第9章　客户端检测　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第10章-DOM"><span class="nav-number">3.9.</span> <span class="nav-text">第10章　DOM　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第11章-DOM扩展"><span class="nav-number">3.10.</span> <span class="nav-text">第11章　DOM扩展　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第12章-DOM2和DOM3"><span class="nav-number">3.11.</span> <span class="nav-text">第12章　DOM2和DOM3　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第13章-事件"><span class="nav-number">3.12.</span> <span class="nav-text">第13章　事件　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第14章-表单脚本"><span class="nav-number">3.13.</span> <span class="nav-text">第14章　表单脚本　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第15章-使用Canvas绘图"><span class="nav-number">3.14.</span> <span class="nav-text">第15章　使用Canvas绘图　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第16章-HTML5脚本编程"><span class="nav-number">3.15.</span> <span class="nav-text">第16章　HTML5脚本编程　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第17章-错误处理与调试"><span class="nav-number">3.16.</span> <span class="nav-text">第17章　错误处理与调试　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第18章-JavaScript与XML"><span class="nav-number">3.17.</span> <span class="nav-text">第18章　JavaScript与XML　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第19章-E4X"><span class="nav-number">3.18.</span> <span class="nav-text">第19章　E4X　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第20章-JSON"><span class="nav-number">3.19.</span> <span class="nav-text">第20章　JSON　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第21章-Ajax与Comet"><span class="nav-number">3.20.</span> <span class="nav-text">第21章　Ajax与Comet　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第22章-高级技巧"><span class="nav-number">3.21.</span> <span class="nav-text">第22章　高级技巧　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第23章-离线应用与客户端存储"><span class="nav-number">3.22.</span> <span class="nav-text">第23章　离线应用与客户端存储　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第24章-最佳实践"><span class="nav-number">3.23.</span> <span class="nav-text">第24章　最佳实践　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第25章-新兴的API"><span class="nav-number">3.24.</span> <span class="nav-text">第25章　新兴的API　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录A-ECMAScript-Harmony"><span class="nav-number">3.25.</span> <span class="nav-text">附录A　ECMAScript Harmony　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录B-严格模式"><span class="nav-number">3.26.</span> <span class="nav-text">附录B　严格模式　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录C-JavaScript库"><span class="nav-number">3.27.</span> <span class="nav-text">附录C　JavaScript库　　</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#附录D-JavaScript工具-0"><span class="nav-number">3.28.</span> <span class="nav-text">附录D　JavaScript工具　　## ### 0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1、ECMAScript"><span class="nav-number">3.29.</span> <span class="nav-text">1、ECMAScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、let-和-const"><span class="nav-number">3.30.</span> <span class="nav-text">2、let 和 const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、变量的解"><span class="nav-number">3.31.</span> <span class="nav-text">3、变量的解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、字符串"><span class="nav-number">3.32.</span> <span class="nav-text">4、字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、正则"><span class="nav-number">3.33.</span> <span class="nav-text">5、正则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6、数值"><span class="nav-number">3.34.</span> <span class="nav-text">6、数值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7、函数"><span class="nav-number">3.35.</span> <span class="nav-text">7、函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8、数组"><span class="nav-number">3.36.</span> <span class="nav-text">8、数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9、对象"><span class="nav-number">3.37.</span> <span class="nav-text">9、对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10、Sym"><span class="nav-number">3.38.</span> <span class="nav-text">10、Sym</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11、Set-和-Map-数"><span class="nav-number">3.39.</span> <span class="nav-text">11、Set 和 Map 数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12、Pr"><span class="nav-number">3.40.</span> <span class="nav-text">12、Pr</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13、Refl"><span class="nav-number">3.41.</span> <span class="nav-text">13、Refl</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14、Promise"><span class="nav-number">3.42.</span> <span class="nav-text">14、Promise</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#15、Iterator-和-for…of"><span class="nav-number">3.43.</span> <span class="nav-text">15、Iterator 和 for…of</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#16、Generator-函数"><span class="nav-number">3.44.</span> <span class="nav-text">16、Generator 函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17、Generator-函数的异"><span class="nav-number">3.45.</span> <span class="nav-text">17、Generator 函数的异</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#18、async"><span class="nav-number">3.46.</span> <span class="nav-text">18、async</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#19、Class-的基"><span class="nav-number">3.47.</span> <span class="nav-text">19、Class 的基</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20、Class"><span class="nav-number">3.48.</span> <span class="nav-text">20、Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#21、Decora"><span class="nav-number">3.49.</span> <span class="nav-text">21、Decora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22、Module"><span class="nav-number">3.50.</span> <span class="nav-text">22、Module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#23、Module-的加"><span class="nav-number">3.51.</span> <span class="nav-text">23、Module 的加</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24、编"><span class="nav-number">3.52.</span> <span class="nav-text">24、编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25、读"><span class="nav-number">3.53.</span> <span class="nav-text">25、读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#26、ArrayBuf"><span class="nav-number">3.54.</span> <span class="nav-text">26、ArrayBuf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27、参"><span class="nav-number">3.55.</span> <span class="nav-text">27、参</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Carry Sun</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wVVSoEvbz8XvyuzG34V9GyRE-gzGzoHsz", "1ze9QHCnMNQ2RS614Vw9kcwC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/clicklove.js"></script>
+  <!--崩溃欺骗-->
+  <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
